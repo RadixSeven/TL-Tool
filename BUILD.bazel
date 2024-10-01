@@ -1,0 +1,20 @@
+load("@rules_python//python:defs.bzl", "py_binary", "py_test")
+
+py_binary(
+    name = "tlj",
+    srcs = ["tlj.py"],
+    deps = [
+    ],
+)
+
+py_test(
+    name = "test_tlj",
+    srcs = ["test_tlj.py"],
+    deps = [
+        "@pypi//pytest",
+        ":tlj",
+    ],
+    args = ["-vv"],
+    main = "test_tlj.py",
+    size = "small",
+)

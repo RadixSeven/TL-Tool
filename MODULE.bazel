@@ -1,0 +1,18 @@
+module(
+    name = "tech_lead_jira",
+    version = "0.1",
+)
+
+bazel_dep(name = "rules_python", version = "0.36.0")
+python = use_extension("@rules_python//python:extensions.bzl", "python")
+python.toolchain(
+    python_version = "3.11",
+)
+
+pip = use_extension("@rules_python//python/extensions:pip.bzl", "pip")
+pip.parse(
+    hub_name = "pypi",
+    requirements_lock = "//third_party:requirements.txt",
+    python_version = "3.11",
+)
+use_repo(pip, "pypi")
