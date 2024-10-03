@@ -1,1 +1,1 @@
-Jira tools for Tech Leads
+Tools for Tech Leads - mainly from Jira
