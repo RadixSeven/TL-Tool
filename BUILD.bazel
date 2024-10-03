@@ -1,20 +1,26 @@
 load("@rules_python//python:defs.bzl", "py_binary", "py_test")
+load("@rules_python//python:pip.bzl", "compile_pip_requirements")
 
 py_binary(
-    name = "tlj",
-    srcs = ["tlj.py"],
+    name = "tlt",
+    srcs = ["tlt.py"],
     deps = [
     ],
 )
 
 py_test(
-    name = "test_tlj",
-    srcs = ["test_tlj.py"],
+    name = "test_tlt",
+    srcs = ["test_tlt.py"],
     deps = [
         "@pypi//pytest",
-        ":tlj",
+        ":tlt",
     ],
     args = ["-vv"],
-    main = "test_tlj.py",
+    main = "test_tlt.py",
     size = "small",
+)
+
+compile_pip_requirements(
+    name = "requirements",
+    src = "requirements.in",
 )
