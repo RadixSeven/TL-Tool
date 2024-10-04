@@ -4,6 +4,8 @@ module(
 )
 
 bazel_dep(name = "rules_python", version = "0.36.0")
+bazel_dep(name = "rules_mypy", version = "0.7.0")
+
 python = use_extension("@rules_python//python:extensions.bzl", "python")
 python.toolchain(
     python_version = "3.11",
@@ -16,3 +18,12 @@ pip.parse(
     python_version = "3.11",
 )
 use_repo(pip, "pypi")
+
+types = use_extension("@rules_mypy//mypy:types.bzl", "types")
+types.requirements(
+    name = "pypi_types",
+    pip_requirements = "@pypi//:requirements.bzl",
+    # also legal to pass a `requirements.in` here
+    requirements_txt = "//:requirements.txt",
+)
+use_repo(types, "pypi_types")
