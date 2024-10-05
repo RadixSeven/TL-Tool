@@ -5,7 +5,7 @@
       <excludeFolder url="file://$MODULE_DIR$/.." />
       <excludeFolder url="file://$MODULE_DIR$/../../.idea" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="Python 3.12 (TLTool)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
