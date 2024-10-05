@@ -1,6 +1,8 @@
-import pytest
 import sys
-from tlt import some_function
+
+import pytest
+
+from tlt.tlt import some_function
 
 
 def test_some_function() -> None:

@@ -1,29 +1,9 @@
-load("@rules_python//python:defs.bzl", "py_binary", "py_test")
 load("@rules_python//python:pip.bzl", "compile_pip_requirements")
-
-py_binary(
-    name = "tlt",
-    srcs = ["tlt.py"],
-    deps = [
-    ],
-)
-
-py_test(
-    name = "test_tlt",
-    srcs = ["test_tlt.py"],
-    deps = [
-        "@pypi//pytest",
-        ":tlt",
-    ],
-    args = ["-vv"],
-    main = "test_tlt.py",
-    size = "small",
-)
 
 compile_pip_requirements(
     name = "requirements",
     src = "requirements.in",
-    tags = ["no-mypy",]
+    tags = ["no-mypy"],
 )
 
 exports_files(["mypy.ini"])
