@@ -3,16 +3,21 @@
 import json
 import logging
 import sqlite3
-import sys
 import time
-from collections.abc import Generator
+from collections.abc import Callable, Generator
+from contextlib import AbstractContextManager, contextmanager
 from multiprocessing import Process
+from typing import cast
 
 import requests
 from requests.auth import AuthBase
 from requests_ratelimiter import LimiterSession
 
 log = logging.getLogger(__name__)
+
+# Type alias for a function that returns a context manager for database connections
+# it can be used in a with statement to manage a connection
+ConnectionSupplier = Callable[[], AbstractContextManager[sqlite3.Connection]]
 
 
 class BearerAuth(AuthBase):
@@ -34,7 +39,8 @@ class BearerAuth(AuthBase):
         Returns:
             The modified request with the Authorization header.
         """
-        r.headers["Authorization"] = f"Bearer {self._token}"
+        if r.headers is not None:
+            r.headers["Authorization"] = f"Bearer {self._token}"
         return r
 
 
@@ -46,27 +52,28 @@ class JiraCacheUpdater:
         jira_server_base: str,
         jira_token: str,
         jql: str,
-        db_path: str,
+        connection_supplier: ConnectionSupplier,
         seconds_per_check: int = 5,
         requests_per_second: int = 1,
     ) -> None:
         """
         Initialize the JiraCacheUpdater with server details, token, JQL query,
-        and database path.
+        and a database connection manager.
+
+        Also creates tables in the database if it does not have them.
 
         Args:
             jira_server_base: Base URL of the Jira server.
             jira_token: Authentication token for Jira.
             jql: JQL query to filter issues.
-            db_path: Path to the SQLite database for caching.
+            connection_supplier: A callable that returns a context manager for database connections.
             seconds_per_check: Minimum number of seconds between checks.
-            requests_per_second: Number of requests per second allowed for rate
-                limiting.
+            requests_per_second: Number of requests per second allowed for rate limiting.
         """
         self.jira_server_base = jira_server_base
         self.jira_token = jira_token
         self.jql = jql
-        self.db_path = db_path
+        self.connection_supplier = connection_supplier
         self.seconds_per_check = seconds_per_check
         self.session = LimiterSession(per_second=requests_per_second)
         self.auth = BearerAuth(jira_token)
@@ -78,7 +85,7 @@ class JiraCacheUpdater:
         Initialize the SQLite database by creating necessary tables if they do
         not exist.
         """
-        with sqlite3.connect(self.db_path) as conn:
+        with self.connection_supplier() as conn:
             cursor = conn.cursor()
             cursor.execute(
                 """
@@ -104,10 +111,9 @@ class JiraCacheUpdater:
         Retrieve the time of the last check from the database.
 
         Returns:
-            The timestamp of the last check, or None if no checks have been
-            performed.
+            The timestamp of the last check, or None if no checks have been performed.
         """
-        with sqlite3.connect(self.db_path) as conn:
+        with self.connection_supplier() as conn:
             cursor = conn.cursor()
             cursor.execute(
                 "SELECT last_check_time FROM checks ORDER BY id DESC LIMIT 1"
@@ -122,7 +128,7 @@ class JiraCacheUpdater:
         Args:
             check_time: The timestamp of the latest check.
         """
-        with sqlite3.connect(self.db_path) as conn:
+        with self.connection_supplier() as conn:
             cursor = conn.cursor()
             cursor.execute(
                 "INSERT INTO checks (last_check_time) VALUES (?)", (check_time,)
@@ -136,7 +142,7 @@ class JiraCacheUpdater:
         Args:
             issue: The issue data to be inserted or updated.
         """
-        with sqlite3.connect(self.db_path) as conn:
+        with self.connection_supplier() as conn:
             cursor = conn.cursor()
             cursor.execute(
                 """
@@ -223,6 +229,27 @@ class JiraCacheUpdater:
                 time.sleep(self.seconds_per_check - elapsed_time)
 
 
+def create_file_db_connection_supplier(
+    db_path: str,
+) -> ConnectionSupplier:
+    """Return a function that can be called in a with statement to manage
+    a SQLite connection.
+    """
+
+    @contextmanager
+    def connection_manager() -> Generator[sqlite3.Connection, None, None]:
+        conn = sqlite3.connect(db_path)
+        try:
+            yield conn
+        finally:
+            conn.close()
+
+    return cast(
+        ConnectionSupplier,
+        connection_manager,
+    )
+
+
 def main() -> int:
     """Show usage until I write another module"""
     jira_server = "https://jira.example.com"
@@ -230,12 +257,20 @@ def main() -> int:
     jql = "project = TEST"
     db_path = "jira_cache.db"
 
+    connection_supplier = create_file_db_connection_supplier(db_path)
     updater = JiraCacheUpdater(
-        jira_server, jira_token, jql, db_path, requests_per_second=2
+        jira_server,
+        jira_token,
+        jql,
+        connection_supplier,
+        requests_per_second=2,
     )
     p = Process(target=updater.start)
     p.start()
+    return 0
 
 
 if __name__ == "__main__":
+    import sys
+
     sys.exit(main())
