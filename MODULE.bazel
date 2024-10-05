@@ -23,7 +23,6 @@ types = use_extension("@rules_mypy//mypy:types.bzl", "types")
 types.requirements(
     name = "pypi_types",
     pip_requirements = "@pypi//:requirements.bzl",
-    # also legal to pass a `requirements.in` here
     requirements_txt = "//:requirements.txt",
 )
 use_repo(types, "pypi_types")

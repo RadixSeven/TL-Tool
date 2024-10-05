@@ -1,9 +1,19 @@
-load("@rules_python//python:defs.bzl", "py_binary")
+load("@rules_python//python:defs.bzl", "py_binary", "py_library")
 
 py_binary(
     name = "tlt",
     srcs = ["tlt.py"],
     visibility = ["//tests:__subpackages__"],
     deps = [
+    ],
+)
+
+py_library(
+    name = "jira_cache_updater",
+    srcs = ["jira_cache_updater.py"],
+    visibility = ["//tests:__subpackages__"],
+    deps = [
+        "@pypi//requests",
+        "@pypi//requests_ratelimiter",
     ],
 )
