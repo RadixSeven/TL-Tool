@@ -7,7 +7,19 @@ py_test(
     args = ["-vv"],
     main = "test_tlt.py",
     deps = [
-        "//tlt:tlt",
+        "//tlt",
+        "@pypi//pytest",
+    ],
+)
+
+py_test(
+    name = "test_jira_cache_updater",
+    size = "small",
+    srcs = ["test_jira_cache_updater.py"],
+    args = ["-vv"],
+    main = "test_jira_cache_updater.py",
+    deps = [
+        "//tlt:jira_cache_updater",
         "@pypi//pytest",
     ],
 )
