@@ -183,9 +183,21 @@ def main() -> int:
     # Create JQL query from projects
     jql = " OR ".join(f"project = {project}" for project in args.projects)
 
+    # Ensure the cache database parent exists
+    try:
+        args.cache_db.parent.mkdir(parents=True, exist_ok=True)
+    except Exception as e:
+        print(  # noqa: T201
+            f"Cannot create cache database parent directory {args.cache_db.parent}. "
+            f"Error: {e}",
+            file=sys.stderr,
+        )
+        raise SystemExit(2) from e
+
     # Create connection supplier
     connection_supplier = create_file_db_connection_supplier(args.cache_db)
 
+    # Ensure the cache database is openable
     try:
         with sqlite3.connect(args.cache_db):
             pass
