@@ -163,6 +163,7 @@ class JiraCacheUpdater:
         Run a check for updated issues since the last check and update the
         database accordingly.
         """
+        time_started = time.time()
         last_check_time = self._get_last_check_time()
         jql = self.jql
         if last_check_time:
@@ -172,13 +173,16 @@ class JiraCacheUpdater:
             )
             jql = f'updated >= "{last_check_str}" AND ({jql})'
 
-        # Record the time of this check before starting the check
-        self._set_last_check_time(time.time())
-
         log.debug(f"Running Jira check with JQL: {jql}")
         for issue in self._download_issues(jql):
             # Update each issue in the database
             self._update_issue(issue)
+
+        # Record the time of this check started once it is finished.
+        # This ensures that if the check did not complete, the next check will
+        # not miss any issues it should have gotten. And if issues came after
+        # the check started, they will be fetched in the next check.
+        self._set_last_check_time(time_started)
 
     def _download_issues(
         self, jql: str
