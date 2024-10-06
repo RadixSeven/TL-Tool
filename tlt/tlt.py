@@ -1,6 +1,7 @@
 """Main module for the TL Tool."""
 
 import argparse
+import logging
 import os
 import re
 import sqlite3
@@ -90,6 +91,7 @@ class Args:
     seconds_between_checks: int
     rate_limit: int
     operation: str
+    is_debug: bool
 
 
 def _parse_args() -> Args:
@@ -131,6 +133,9 @@ def _parse_args() -> Args:
     parser.add_argument(
         "operation", choices=["update-cache"], help="Operation to perform"
     )
+    parser.add_argument(
+        "--debug", action="store_true", help="Enable debug logging"
+    )
     args = parser.parse_args()
     return Args(
         url=args.url.rstrip("/"),
@@ -140,6 +145,7 @@ def _parse_args() -> Args:
         seconds_between_checks=args.seconds_between_checks,
         rate_limit=args.rate_limit,
         operation=args.operation,
+        is_debug=args.debug,
     )
 
 
@@ -170,6 +176,11 @@ def jira_project_argument(name: str) -> str:
 def main() -> int:
     """Run the TL Tool."""
     args = _parse_args()
+
+    if args.is_debug:
+        logging.basicConfig(level=logging.DEBUG)
+    else:
+        logging.basicConfig(level=logging.INFO)
 
     # Check token file
     err = token_path_error_msg(args.token_path)
