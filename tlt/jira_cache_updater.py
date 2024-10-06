@@ -118,7 +118,7 @@ class JiraCacheUpdater:
         with self.connection_supplier() as conn:
             cursor = conn.cursor()
             cursor.execute(
-                "SELECT last_check_time FROM checks ORDER BY id DESC LIMIT 1"
+                "SELECT last_check_time FROM checks ORDER BY last_check_time DESC LIMIT 1"
             )
             result = cursor.fetchone()
             return result[0] if result else None
