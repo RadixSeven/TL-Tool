@@ -145,7 +145,7 @@ class JiraCacheUpdater:
             issue: The issue data to be inserted or updated.
         """
         with self.connection_supplier() as conn:
-            log.debug(f"Updating issue {issue['key']} with data: {issue}")
+            log.debug(f"Updating issue {issue['key']}")
             cursor = conn.cursor()
             cursor.execute(
                 """
