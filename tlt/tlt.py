@@ -9,7 +9,7 @@ from dataclasses import dataclass
 from multiprocessing import Process
 from pathlib import Path
 
-from jira_cache_updater import (
+from tlt.jira_cache_updater import (
     ConnectionSupplier,
     JiraCacheUpdater,
     create_file_db_connection_supplier,
