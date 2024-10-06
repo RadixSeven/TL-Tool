@@ -1,5 +1,6 @@
-from typing import TypedDict, Any
+"""TypedDicts for raw Jira issue data."""
 
+from typing import Any, TypedDict
 
 AvatarUrlsDict = TypedDict(
     "AvatarUrlsDict",
@@ -12,7 +13,7 @@ AvatarUrlsDict = TypedDict(
 )
 
 
-class AuthorDict(TypedDict):
+class AuthorDict(TypedDict):  # noqa: D101
     self: str
     name: str
     key: str
@@ -23,7 +24,7 @@ class AuthorDict(TypedDict):
     timeZone: str
 
 
-class WorkLogDict(TypedDict):
+class WorkLogDict(TypedDict):  # noqa: D101
     self: str
     author: AuthorDict
     updateAuthor: AuthorDict
@@ -37,21 +38,21 @@ class WorkLogDict(TypedDict):
     issueId: str
 
 
-class WorkLogsDict(TypedDict):
+class WorkLogsDict(TypedDict):  # noqa: D101
     startAt: int
     maxResults: int
     total: int
     worklogs: list[WorkLogDict]
 
 
-class ComponentDict(TypedDict):
+class ComponentDict(TypedDict):  # noqa: D101
     self: str
     id: str
     name: str
     description: str
 
 
-class IssueTypeDict(TypedDict):
+class IssueTypeDict(TypedDict):  # noqa: D101
     self: str
     id: str
     description: str
@@ -60,15 +61,16 @@ class IssueTypeDict(TypedDict):
     subtask: bool
 
 
-class RawJiraIssueFields(TypedDict):
+class RawJiraIssueFields(TypedDict):  # noqa: D101
     summary: str
     worklog: WorkLogsDict
     components: list[ComponentDict]
     # noinspection SpellCheckingInspection
     issuetype: dict[str, Any]
+    updated: str  # This may be a hallucination
 
 
-class RawJiraIssueDict(TypedDict):
+class RawJiraIssueDict(TypedDict):  # noqa: D101
     expand: str
     id: str
     self: str

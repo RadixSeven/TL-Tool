@@ -4,7 +4,7 @@ import json
 import logging
 import sqlite3
 import time
-from collections.abc import Callable, Generator
+from collections.abc import Callable, Generator, Iterable
 from contextlib import AbstractContextManager, contextmanager
 from pathlib import Path
 from typing import cast
@@ -12,6 +12,8 @@ from typing import cast
 import requests
 from requests.auth import AuthBase
 from requests_ratelimiter import LimiterSession
+
+from tlt.raw_issue_dict import RawJiraIssueDict
 
 log = logging.getLogger(__name__)
 
@@ -135,7 +137,7 @@ class JiraCacheUpdater:
             )
             conn.commit()
 
-    def _update_issue(self, issue: dict) -> None:
+    def _update_issue(self, issue: RawJiraIssueDict) -> None:
         """
         Insert or update an issue in the database.
 
@@ -173,12 +175,13 @@ class JiraCacheUpdater:
         self._set_last_check_time(time.time())
 
         log.debug(f"Running Jira check with JQL: {jql}")
-        issues = self._download_issues(jql)
-        for issue in issues:
+        for issue in self._download_issues(jql):
             # Update each issue in the database
             self._update_issue(issue)
 
-    def _download_issues(self, jql: str) -> Generator[dict, None, None]:
+    def _download_issues(
+        self, jql: str
+    ) -> Generator[RawJiraIssueDict, None, None]:
         """
         Download issues from Jira using the provided JQL query.
 
@@ -189,31 +192,13 @@ class JiraCacheUpdater:
         Yields:
             The data for the next issue returned by the query.
         """
-        url = f"{self.jira_server_base}/rest/api/2/search"
-        headers = {
-            "Accept": "application/json; charset=utf-8",
-            "Content-Type": "application/json; charset=utf-8",
-        }
-        payload = json.dumps(
-            {
-                "jql": jql,
-                "fields": ["*all"],  # Request all fields for each issue
-                "maxResults": 100,  # Limit the number of results per request
-            }
+        yield from self._raw_issue_stream(
+            self.jira_server_base,
+            self.jira_token,
+            jql,
+            fields=("*all",),
+            to_expand=("names",),
         )
-
-        while True:
-            # Make a POST request to the Jira API to fetch issues
-            response = self.session.post(
-                url, headers=headers, data=payload, auth=self.auth
-            )
-            response.raise_for_status()
-            response_json = response.json()
-            yield from response_json.get("issues", [])
-
-            if response_json.get("isLast", True):
-                # Break if this is the last page of results
-                break
 
     def start(self) -> None:
         """
@@ -227,6 +212,81 @@ class JiraCacheUpdater:
             if elapsed_time < self.seconds_per_check:
                 # Sleep to maintain the minimum interval between checks
                 time.sleep(self.seconds_per_check - elapsed_time)
+
+    def _raw_issue_stream(
+        self,
+        jira_server_base: str,
+        jira_token: str,
+        jql: str,
+        to_expand: Iterable[str] = (),
+        fields: Iterable[str] = (),
+        max_results_per_page: int = 100,
+    ) -> Generator[RawJiraIssueDict, None, None]:
+        """Download issues from Jira and return them one by one
+
+        Assumes API version 2
+
+        Handles pagination
+
+        :param jql: The JQL query limiting the issues to download.
+        :param jira_server_base: The base URL of the Jira server. (e.g.
+            "https://jira.example.com")
+        :param jira_token: The personal access token for the Jira server.
+        :param to_expand: The fields to expand in the response. See
+            https://developer.atlassian.com/cloud/jira/platform/rest/v2/intro/#expansion
+        :param fields: The fields to return in the response. "*all" starts with all
+            instead of navigable fields. "+field" adds a field to the list of fields
+            to return. "-field" removes a field from the list of fields to return.
+            For more details, see
+            https://developer.atlassian.com/cloud/jira/platform/rest/v2/api-group-issue-search/#api-rest-api-2-search-post
+        :param max_results_per_page: The maximum number of issues to return in a
+            single page of results. The actual number of issues returned may be
+            less than this number if there are fewer issues matching the query.
+            This is internal to this method (since it returns all issues), but may
+            be important for performance tuning.
+        """
+        url = f"{jira_server_base}/rest/api/2/search"
+        headers = {
+            "Accept": "application/json; charset=utf-8",
+            "Content-Type": "application/json; charset=utf-8",
+        }
+        auth = BearerAuth(jira_token)
+
+        expand_set = set(to_expand)
+        field_set = set(fields)
+        is_last_page = False
+        first_time = True
+        index_of_first_result = 0
+        while not is_last_page:
+            to_expand = expand_set | {"names"} if first_time else expand_set
+            payload = json.dumps(
+                {
+                    "expand": list(to_expand),
+                    "fields": list(field_set),
+                    "jql": jql,
+                    "maxResults": max_results_per_page,
+                    "startAt": index_of_first_result,
+                }
+            )
+            response = self.session.post(
+                url, headers=headers, data=payload, auth=auth
+            )
+            log.debug(f"Response encoding: {response.encoding}")
+            log.debug(f"Response type: {response.headers['content-type']}")
+            response.raise_for_status()
+            response_json = response.json()
+            # Do not check for unexpected or missing names in the response.
+            # This might be a later feature. (See ManagementJira msr_jira.py
+            # for an example implementation.)
+            if "issues" not in response_json:
+                break
+            response_issues = response_json["issues"]
+            yield from response_issues
+            index_of_first_result += len(response_issues)
+
+            is_last_page = (
+                response_json.get("isLast", False) or len(response_issues) == 0
+            )
 
 
 def create_file_db_connection_supplier(

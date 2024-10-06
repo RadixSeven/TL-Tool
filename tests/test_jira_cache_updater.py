@@ -1,11 +1,15 @@
 import json
 import sqlite3
 import time
+from typing import TYPE_CHECKING
 from unittest.mock import MagicMock, Mock, patch
 
 import pytest
 
 from tlt.jira_cache_updater import ConnectionSupplier, JiraCacheUpdater
+
+if TYPE_CHECKING:
+    from tlt.raw_issue_dict import RawJiraIssueDict
 
 
 @pytest.fixture
@@ -76,10 +80,30 @@ def test_get_set_last_check_time(jira_cache_updater: JiraCacheUpdater):
 def test_update_issue(
     jira_cache_updater: JiraCacheUpdater, in_memory_db: ConnectionSupplier
 ):
-    test_issue = {
+    test_issue: RawJiraIssueDict = {
         "key": "TEST-1",
-        "fields": {"updated": "2023-01-01T12:00:00.000+0000"},
-        "summary": "Test issue",
+        "fields": {
+            "summary": "Test issue",
+            "updated": "2023-01-01T12:00:00.000+0000",
+            "components": [],
+            "issuetype": {
+                "self": "dummy_self",
+                "id": "dummy_id",
+                "description": "dummy_description",
+                "iconUrl": "dummy_iconUrl",
+                "name": "dummy_name",
+                "subtask": False,
+            },
+            "worklog": {
+                "startAt": 0,
+                "maxResults": 0,
+                "total": 0,
+                "worklogs": [],
+            },
+        },
+        "expand": "dummy_expand",
+        "id": "dummy_id",
+        "self": "dummy_self",
     }
 
     jira_cache_updater._update_issue(test_issue)

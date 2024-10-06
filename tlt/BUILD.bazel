@@ -11,10 +11,23 @@ py_binary(
 
 py_library(
     name = "jira_cache_updater",
-    srcs = ["jira_cache_updater.py"],
+    srcs = [
+        "jira_cache_updater.py",
+    ],
     visibility = ["//tests:__subpackages__"],
     deps = [
+        ":raw_issue_dict",
         "@pypi//requests",
         "@pypi//requests_ratelimiter",
+    ],
+)
+
+py_library(
+    name = "raw_issue_dict",
+    srcs = [
+        "raw_issue_dict.py",
+    ],
+    visibility = ["//tests:__subpackages__"],
+    deps = [
     ],
 )
