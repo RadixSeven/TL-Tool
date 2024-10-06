@@ -3,6 +3,7 @@
 import argparse
 import os
 import re
+import sqlite3
 import sys
 import time
 from dataclasses import dataclass
@@ -186,7 +187,8 @@ def main() -> int:
     connection_supplier = create_file_db_connection_supplier(args.cache_db)
 
     try:
-        connection_supplier()
+        with sqlite3.connect(args.cache_db):
+            pass
     except Exception as e:
         print(  # noqa: T201
             f"Cannot open cache database file {args.cache_db}. " f"Error: {e}",
