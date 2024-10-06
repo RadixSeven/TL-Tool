@@ -185,6 +185,15 @@ def main() -> int:
     # Create connection supplier
     connection_supplier = create_file_db_connection_supplier(args.cache_db)
 
+    try:
+        connection_supplier()
+    except Exception as e:
+        print(  # noqa: T201
+            f"Cannot open cache database file {args.cache_db}. " f"Error: {e}",
+            file=sys.stderr,
+        )
+        raise SystemExit(3) from e
+
     # Create JiraCacheUpdater
     updater = JiraCacheUpdater(
         args.url,
