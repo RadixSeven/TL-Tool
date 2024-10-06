@@ -6,7 +6,7 @@ import sqlite3
 import time
 from collections.abc import Callable, Generator
 from contextlib import AbstractContextManager, contextmanager
-from multiprocessing import Process
+from pathlib import Path
 from typing import cast
 
 import requests
@@ -230,10 +230,13 @@ class JiraCacheUpdater:
 
 
 def create_file_db_connection_supplier(
-    db_path: str,
+    db_path: Path,
 ) -> ConnectionSupplier:
     """Return a function that can be called in a with statement to manage
     a SQLite connection.
+
+    Args:
+        db_path: The path to the SQLite database file.
     """
 
     @contextmanager
@@ -248,29 +251,3 @@ def create_file_db_connection_supplier(
         ConnectionSupplier,
         connection_manager,
     )
-
-
-def main() -> int:
-    """Show usage until I write another module"""
-    jira_server = "https://jira.example.com"
-    jira_token = "your_jira_token"  # noqa: S105
-    jql = "project = TEST"
-    db_path = "jira_cache.db"
-
-    connection_supplier = create_file_db_connection_supplier(db_path)
-    updater = JiraCacheUpdater(
-        jira_server,
-        jira_token,
-        jql,
-        connection_supplier,
-        requests_per_second=2,
-    )
-    p = Process(target=updater.start)
-    p.start()
-    return 0
-
-
-if __name__ == "__main__":
-    import sys
-
-    sys.exit(main())
