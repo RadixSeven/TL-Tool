@@ -95,8 +95,8 @@ def _parse_args() -> Args:
     parser = argparse.ArgumentParser(description="Jira Cache Updater CLI")
     parser.add_argument(
         "--url",
-        default="https://jira.ncbi.nlm.nih.gov/",
-        help="Jira server URL",
+        default="https://jira.ncbi.nlm.nih.gov",
+        help="Jira server URL. Default: https://jira.ncbi.nlm.nih.gov",
     )
     parser.add_argument(
         "--token-path",
@@ -132,7 +132,7 @@ def _parse_args() -> Args:
     )
     args = parser.parse_args()
     return Args(
-        url=args.url,
+        url=args.url.rstrip("/"),
         token_path=Path(args.token_path).expanduser(),
         projects=args.projects,
         cache_db=Path(args.cache_db).expanduser(),
