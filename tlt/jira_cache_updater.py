@@ -55,8 +55,8 @@ class JiraCacheUpdater:
         jira_token: str,
         jql: str,
         connection_supplier: ConnectionSupplier,
-        seconds_per_check: int = 5,
-        requests_per_second: int = 1,
+        seconds_per_check: float = 5,
+        requests_per_second: float = 1,
     ) -> None:
         """
         Initialize the JiraCacheUpdater with server details, token, JQL query,

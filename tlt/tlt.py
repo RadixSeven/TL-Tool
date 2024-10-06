@@ -88,8 +88,8 @@ class Args:
     token_path: Path
     projects: list[str]
     cache_db: Path
-    seconds_between_checks: int
-    rate_limit: int
+    seconds_between_checks: float
+    rate_limit: float
     operation: str
     is_debug: bool
 
@@ -120,15 +120,15 @@ def _parse_args() -> Args:
     )
     parser.add_argument(
         "--seconds-between-checks",
-        type=int,
+        type=float,
         default=5,
         help="Seconds between checks",
     )
     parser.add_argument(
         "--rate-limit",
-        type=int,
-        default=1,
-        help="Rate limit for requests per second",
+        type=float,
+        default=3,
+        help="Rate limit in requests per second",
     )
     parser.add_argument(
         "operation", choices=["update-cache"], help="Operation to perform"
