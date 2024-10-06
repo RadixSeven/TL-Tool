@@ -5,6 +5,7 @@ py_binary(
     srcs = ["tlt.py"],
     visibility = ["//tests:__subpackages__"],
     deps = [
+        ":jira_cache_updater",
     ],
 )
 
