@@ -285,7 +285,7 @@ def wait_for_cache_update(
 
         if (
             change_datetime
-            and change_datetime - datetime.now(tz=change_datetime.tzinfo)
+            and datetime.now(tz=change_datetime.tzinfo) - change_datetime
             >= idle_to_wait_for
         ):
             break
