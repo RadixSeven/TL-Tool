@@ -1,0 +1,905 @@
+{
+  "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+  "id": "2017905",
+  "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/issue/2017905",
+  "key": "FHIR-2614",
+  "fields": {
+    "customfield_19200": null,
+    "customfield_19201": null,
+    "customfield_19202": null,
+    "customfield_19203": null,
+    "customfield_17300": null,
+    "customfield_10470": null,
+    "customfield_18911": null,
+    "customfield_10471": null,
+    "customfield_18912": null,
+    "fixVersions": [],
+    "customfield_10110": null,
+    "customfield_10473": 18,
+    "customfield_17301": null,
+    "customfield_10111": null,
+    "customfield_13500": "Thu Oct 03 15:15:17 EDT 2024",
+    "customfield_19204": null,
+    "resolution": null,
+    "customfield_10112": null,
+    "customfield_10113": null,
+    "customfield_13501": null,
+    "customfield_18910": null,
+    "lastViewed": "2024-10-03T15:45:47.224-0400",
+    "customfield_16600": null,
+    "customfield_18903": null,
+    "priority": {
+      "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/priority/6",
+      "iconUrl": "https://jira.ncbi.nlm.nih.gov/images/icons/arrow_up_blue_small.gif",
+      "name": "Normal",
+      "id": "6"
+    },
+    "labels": [
+      "Retire_PY3.9",
+      "python-upgrade"
+    ],
+    "customfield_11303": null,
+    "customfield_11304": null,
+    "customfield_11305": null,
+    "aggregatetimeoriginalestimate": 64800,
+    "timeestimate": 50220,
+    "versions": [],
+    "issuelinks": [
+      {
+        "id": "967659",
+        "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/issueLink/967659",
+        "type": {
+          "id": "10001",
+          "name": "  Duplicate",
+          "inward": " duplicated by",
+          "outward": "duplicates",
+          "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/issueLinkType/10001"
+        },
+        "inwardIssue": {
+          "id": "1682020",
+          "key": "FHIR-1307",
+          "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/issue/1682020",
+          "fields": {
+            "summary": "(Due Q1FY23) Make tickets for move to Py3.11 on FHIR",
+            "status": {
+              "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/status/6",
+              "description": "The issue is considered finished, the resolution is correct. Issues which are closed can be reopened.",
+              "iconUrl": "https://jira.ncbi.nlm.nih.gov/images/icons/statuses/closed.png",
+              "name": "Closed",
+              "id": "6",
+              "statusCategory": {
+                "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/statuscategory/3",
+                "id": 3,
+                "key": "done",
+                "colorName": "success",
+                "name": "Done"
+              }
+            },
+            "priority": {
+              "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/priority/6",
+              "iconUrl": "https://jira.ncbi.nlm.nih.gov/images/icons/arrow_up_blue_small.gif",
+              "name": "Normal",
+              "id": "6"
+            },
+            "issuetype": {
+              "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/issuetype/10602",
+              "id": "10602",
+              "description": "",
+              "iconUrl": "https://jira.ncbi.nlm.nih.gov/secure/viewavatar?size=xsmall&avatarId=17186&avatarType=issuetype",
+              "name": "Design",
+              "subtask": false,
+              "avatarId": 17186
+            }
+          }
+        }
+      },
+      {
+        "id": "967795",
+        "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/issueLink/967795",
+        "type": {
+          "id": "10850",
+          "name": "Mention",
+          "inward": "is mentioned by",
+          "outward": "mentions",
+          "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/issueLinkType/10850"
+        },
+        "outwardIssue": {
+          "id": "1456239",
+          "key": "FHIR-132",
+          "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/issue/1456239",
+          "fields": {
+            "summary": "Remove all traces of the \"frontend\" created for dbGAP-on-FHIR",
+            "status": {
+              "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/status/1",
+              "description": "The issue is open and ready for the assignee to start work on it.",
+              "iconUrl": "https://jira.ncbi.nlm.nih.gov/images/icons/statuses/open.png",
+              "name": "Open",
+              "id": "1",
+              "statusCategory": {
+                "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/statuscategory/2",
+                "id": 2,
+                "key": "new",
+                "colorName": "default",
+                "name": "To Do"
+              }
+            },
+            "priority": {
+              "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/priority/6",
+              "iconUrl": "https://jira.ncbi.nlm.nih.gov/images/icons/arrow_up_blue_small.gif",
+              "name": "Normal",
+              "id": "6"
+            },
+            "issuetype": {
+              "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/issuetype/10601",
+              "id": "10601",
+              "description": "",
+              "iconUrl": "https://jira.ncbi.nlm.nih.gov/secure/viewavatar?size=xsmall&avatarId=18980&avatarType=issuetype",
+              "name": "Code Debt",
+              "subtask": false,
+              "avatarId": 18980
+            }
+          }
+        }
+      },
+      {
+        "id": "967790",
+        "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/issueLink/967790",
+        "type": {
+          "id": "10850",
+          "name": "Mention",
+          "inward": "is mentioned by",
+          "outward": "mentions",
+          "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/issueLinkType/10850"
+        },
+        "outwardIssue": {
+          "id": "1560376",
+          "key": "FHIR-600",
+          "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/issue/1560376",
+          "fields": {
+            "summary": "Provide a switch to make the server super protected",
+            "status": {
+              "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/status/6",
+              "description": "The issue is considered finished, the resolution is correct. Issues which are closed can be reopened.",
+              "iconUrl": "https://jira.ncbi.nlm.nih.gov/images/icons/statuses/closed.png",
+              "name": "Closed",
+              "id": "6",
+              "statusCategory": {
+                "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/statuscategory/3",
+                "id": 3,
+                "key": "done",
+                "colorName": "success",
+                "name": "Done"
+              }
+            },
+            "priority": {
+              "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/priority/6",
+              "iconUrl": "https://jira.ncbi.nlm.nih.gov/images/icons/arrow_up_blue_small.gif",
+              "name": "Normal",
+              "id": "6"
+            },
+            "issuetype": {
+              "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/issuetype/39",
+              "id": "39",
+              "description": "Created by Jira Software - do not edit or delete. Issue type for a user story.",
+              "iconUrl": "https://jira.ncbi.nlm.nih.gov/secure/viewavatar?size=xsmall&avatarId=17195&avatarType=issuetype",
+              "name": "Story",
+              "subtask": false,
+              "avatarId": 17195
+            }
+          }
+        }
+      },
+      {
+        "id": "967816",
+        "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/issueLink/967816",
+        "type": {
+          "id": "10850",
+          "name": "Mention",
+          "inward": "is mentioned by",
+          "outward": "mentions",
+          "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/issueLinkType/10850"
+        },
+        "outwardIssue": {
+          "id": "1711493",
+          "key": "FHIR-1475",
+          "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/issue/1711493",
+          "fields": {
+            "summary": "Upgrade FHIR Python to 3.9+ before Jan 2023",
+            "status": {
+              "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/status/6",
+              "description": "The issue is considered finished, the resolution is correct. Issues which are closed can be reopened.",
+              "iconUrl": "https://jira.ncbi.nlm.nih.gov/images/icons/statuses/closed.png",
+              "name": "Closed",
+              "id": "6",
+              "statusCategory": {
+                "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/statuscategory/3",
+                "id": 3,
+                "key": "done",
+                "colorName": "success",
+                "name": "Done"
+              }
+            },
+            "priority": {
+              "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/priority/6",
+              "iconUrl": "https://jira.ncbi.nlm.nih.gov/images/icons/arrow_up_blue_small.gif",
+              "name": "Normal",
+              "id": "6"
+            },
+            "issuetype": {
+              "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/issuetype/38",
+              "id": "38",
+              "description": "Created by Jira Software - do not edit or delete. Issue type for a big user story that needs to be broken down.",
+              "iconUrl": "https://jira.ncbi.nlm.nih.gov/secure/viewavatar?size=xsmall&avatarId=17187&avatarType=issuetype",
+              "name": "Epic",
+              "subtask": false,
+              "avatarId": 17187
+            }
+          }
+        }
+      },
+      {
+        "id": "967661",
+        "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/issueLink/967661",
+        "type": {
+          "id": "10850",
+          "name": "Mention",
+          "inward": "is mentioned by",
+          "outward": "mentions",
+          "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/issueLinkType/10850"
+        },
+        "outwardIssue": {
+          "id": "1512532",
+          "key": "HVARD-909",
+          "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/issue/1512532",
+          "fields": {
+            "summary": "HVARD Python upgrade to at least 3.8",
+            "status": {
+              "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/status/6",
+              "description": "The issue is considered finished, the resolution is correct. Issues which are closed can be reopened.",
+              "iconUrl": "https://jira.ncbi.nlm.nih.gov/images/icons/statuses/closed.png",
+              "name": "Closed",
+              "id": "6",
+              "statusCategory": {
+                "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/statuscategory/3",
+                "id": 3,
+                "key": "done",
+                "colorName": "success",
+                "name": "Done"
+              }
+            },
+            "priority": {
+              "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/priority/6",
+              "iconUrl": "https://jira.ncbi.nlm.nih.gov/images/icons/arrow_up_blue_small.gif",
+              "name": "Normal",
+              "id": "6"
+            },
+            "issuetype": {
+              "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/issuetype/38",
+              "id": "38",
+              "description": "Created by Jira Software - do not edit or delete. Issue type for a big user story that needs to be broken down.",
+              "iconUrl": "https://jira.ncbi.nlm.nih.gov/secure/viewavatar?size=xsmall&avatarId=17187&avatarType=issuetype",
+              "name": "Epic",
+              "subtask": false,
+              "avatarId": 17187
+            }
+          }
+        }
+      }
+    ],
+    "assignee": null,
+    "status": {
+      "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/status/1",
+      "description": "The issue is open and ready for the assignee to start work on it.",
+      "iconUrl": "https://jira.ncbi.nlm.nih.gov/images/icons/statuses/open.png",
+      "name": "Open",
+      "id": "1",
+      "statusCategory": {
+        "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/statuscategory/2",
+        "id": 2,
+        "key": "new",
+        "colorName": "default",
+        "name": "To Do"
+      }
+    },
+    "components": [
+      {
+        "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/component/30598",
+        "id": "30598",
+        "name": "ETL",
+        "description": "Extract, Transform, Load - sync with dbGaP databases"
+      },
+      {
+        "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/component/30597",
+        "id": "30597",
+        "name": "Server",
+        "description": "The main HAPI FHIR Server and its associated services"
+      }
+    ],
+    "customfield_17003": null,
+    "customfield_17002": null,
+    "customfield_17001": [],
+    "customfield_17000": null,
+    "customfield_10052": null,
+    "customfield_17005": null,
+    "customfield_17004": null,
+    "customfield_11300": null,
+    "customfield_11301": null,
+    "customfield_17801": "Python 3.13 was supposed to be released on Oct 1. However, a recent announcement says Oct 7. So, we'll probably have to wait until after the written install date for SYS to install it on the machines - though I expect it in October.",
+    "customfield_11302": null,
+    "archiveddate": null,
+    "customfield_17800": "Python 3.13 was supposed to be released on Oct 1. However, a recent announcement says Oct 7. So, we'll probably have to wait until after the written install date for SYS to install it on the machines - though I expect it in October.",
+    "customfield_10600": "9223372036854775807",
+    "aggregatetimeestimate": 50220,
+    "customfield_20000": [],
+    "creator": {
+      "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/user?username=moyered",
+      "name": "moyered",
+      "key": "moyered",
+      "emailAddress": "eric.moyer@nih.gov",
+      "avatarUrls": {
+        "48x48": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?ownerId=moyered&avatarId=14881",
+        "24x24": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=small&ownerId=moyered&avatarId=14881",
+        "16x16": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=xsmall&ownerId=moyered&avatarId=14881",
+        "32x32": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=medium&ownerId=moyered&avatarId=14881"
+      },
+      "displayName": "Moyer, Eric",
+      "active": true,
+      "timeZone": "America/New_York"
+    },
+    "customfield_20001": null,
+    "subtasks": [],
+    "customfield_10163": [
+      "moyered(moyered)"
+    ],
+    "reporter": {
+      "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/user?username=moyered",
+      "name": "moyered",
+      "key": "moyered",
+      "emailAddress": "eric.moyer@nih.gov",
+      "avatarUrls": {
+        "48x48": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?ownerId=moyered&avatarId=14881",
+        "24x24": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=small&ownerId=moyered&avatarId=14881",
+        "16x16": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=xsmall&ownerId=moyered&avatarId=14881",
+        "32x32": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=medium&ownerId=moyered&avatarId=14881"
+      },
+      "displayName": "Moyer, Eric",
+      "active": true,
+      "timeZone": "America/New_York"
+    },
+    "aggregateprogress": {
+      "progress": 14580,
+      "total": 64800,
+      "percent": 22
+    },
+    "customfield_13312": "0.0",
+    "customfield_16700": "{summaryBean=com.atlassian.jira.plugin.devstatus.rest.SummaryBean@59f1a457[summary={pullrequest=com.atlassian.jira.plugin.devstatus.rest.SummaryItemBean@7bf4e21c[overall=PullRequestOverallBean{stateCount=0, state='OPEN', details=PullRequestOverallDetails{openCount=0, mergedCount=0, declinedCount=0}},byInstanceType={}], build=com.atlassian.jira.plugin.devstatus.rest.SummaryItemBean@f4d554e[overall=com.atlassian.jira.plugin.devstatus.summary.beans.BuildOverallBean@5375b2b9[failedBuildCount=0,successfulBuildCount=0,unknownBuildCount=0,count=0,lastUpdated=<null>,lastUpdatedTimestamp=<null>],byInstanceType={}], review=com.atlassian.jira.plugin.devstatus.rest.SummaryItemBean@746f2cda[overall=com.atlassian.jira.plugin.devstatus.summary.beans.ReviewsOverallBean@7ba182da[stateCount=0,state=<null>,dueDate=<null>,overDue=false,count=0,lastUpdated=<null>,lastUpdatedTimestamp=<null>],byInstanceType={}], deployment-environment=com.atlassian.jira.plugin.devstatus.rest.SummaryItemBean@1e235fc5[overall=com.atlassian.jira.plugin.devstatus.summary.beans.DeploymentOverallBean@60bdd6c2[topEnvironments=[],showProjects=false,successfulCount=0,count=0,lastUpdated=<null>,lastUpdatedTimestamp=<null>],byInstanceType={}], repository=com.atlassian.jira.plugin.devstatus.rest.SummaryItemBean@6db93ff3[overall=com.atlassian.jira.plugin.devstatus.summary.beans.CommitOverallBean@1af9c7cc[count=0,lastUpdated=<null>,lastUpdatedTimestamp=<null>],byInstanceType={}], branch=com.atlassian.jira.plugin.devstatus.rest.SummaryItemBean@1ea06e21[overall=com.atlassian.jira.plugin.devstatus.summary.beans.BranchOverallBean@10a5b0f1[count=0,lastUpdated=<null>,lastUpdatedTimestamp=<null>],byInstanceType={}]},errors=[],configErrors=[]], devSummaryJson={\"cachedValue\":{\"errors\":[],\"configErrors\":[],\"summary\":{\"pullrequest\":{\"overall\":{\"count\":0,\"lastUpdated\":null,\"stateCount\":0,\"state\":\"OPEN\",\"details\":{\"openCount\":0,\"mergedCount\":0,\"declinedCount\":0,\"total\":0},\"open\":true},\"byInstanceType\":{}},\"build\":{\"overall\":{\"count\":0,\"lastUpdated\":null,\"failedBuildCount\":0,\"successfulBuildCount\":0,\"unknownBuildCount\":0},\"byInstanceType\":{}},\"review\":{\"overall\":{\"count\":0,\"lastUpdated\":null,\"stateCount\":0,\"state\":null,\"dueDate\":null,\"overDue\":false,\"completed\":false},\"byInstanceType\":{}},\"deployment-environment\":{\"overall\":{\"count\":0,\"lastUpdated\":null,\"topEnvironments\":[],\"showProjects\":false,\"successfulCount\":0},\"byInstanceType\":{}},\"repository\":{\"overall\":{\"count\":0,\"lastUpdated\":null},\"byInstanceType\":{}},\"branch\":{\"overall\":{\"count\":0,\"lastUpdated\":null},\"byInstanceType\":{}}}},\"isStale\":false}}",
+    "customfield_17903": null,
+    "progress": {
+      "progress": 14580,
+      "total": 64800,
+      "percent": 22
+    },
+    "votes": {
+      "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/issue/FHIR-2614/votes",
+      "votes": 0,
+      "hasVoted": false
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 4,
+      "worklogs": [
+        {
+          "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/issue/2017905/worklog/289146",
+          "author": {
+            "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/user?username=moyered",
+            "name": "moyered",
+            "key": "moyered",
+            "emailAddress": "eric.moyer@nih.gov",
+            "avatarUrls": {
+              "48x48": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?ownerId=moyered&avatarId=14881",
+              "24x24": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=small&ownerId=moyered&avatarId=14881",
+              "16x16": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=xsmall&ownerId=moyered&avatarId=14881",
+              "32x32": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=medium&ownerId=moyered&avatarId=14881"
+            },
+            "displayName": "Moyer, Eric",
+            "active": true,
+            "timeZone": "America/New_York"
+          },
+          "updateAuthor": {
+            "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/user?username=moyered",
+            "name": "moyered",
+            "key": "moyered",
+            "emailAddress": "eric.moyer@nih.gov",
+            "avatarUrls": {
+              "48x48": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?ownerId=moyered&avatarId=14881",
+              "24x24": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=small&ownerId=moyered&avatarId=14881",
+              "16x16": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=xsmall&ownerId=moyered&avatarId=14881",
+              "32x32": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=medium&ownerId=moyered&avatarId=14881"
+            },
+            "displayName": "Moyer, Eric",
+            "active": true,
+            "timeZone": "America/New_York"
+          },
+          "comment": "Find the old epic. List potential files and directories to upgrade in the main repository. Find other potential repositories and inspect them for Python code. Archive unused repositories.",
+          "created": "2024-10-03T14:50:39.923-0400",
+          "updated": "2024-10-03T14:50:39.923-0400",
+          "started": "2024-10-03T00:00:00.000-0400",
+          "timeSpent": "2h 48m",
+          "timeSpentSeconds": 10080,
+          "id": "289146",
+          "issueId": "2017905"
+        },
+        {
+          "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/issue/2017905/worklog/289147",
+          "author": {
+            "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/user?username=moyered",
+            "name": "moyered",
+            "key": "moyered",
+            "emailAddress": "eric.moyer@nih.gov",
+            "avatarUrls": {
+              "48x48": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?ownerId=moyered&avatarId=14881",
+              "24x24": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=small&ownerId=moyered&avatarId=14881",
+              "16x16": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=xsmall&ownerId=moyered&avatarId=14881",
+              "32x32": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=medium&ownerId=moyered&avatarId=14881"
+            },
+            "displayName": "Moyer, Eric",
+            "active": true,
+            "timeZone": "America/New_York"
+          },
+          "updateAuthor": {
+            "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/user?username=moyered",
+            "name": "moyered",
+            "key": "moyered",
+            "emailAddress": "eric.moyer@nih.gov",
+            "avatarUrls": {
+              "48x48": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?ownerId=moyered&avatarId=14881",
+              "24x24": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=small&ownerId=moyered&avatarId=14881",
+              "16x16": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=xsmall&ownerId=moyered&avatarId=14881",
+              "32x32": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=medium&ownerId=moyered&avatarId=14881"
+            },
+            "displayName": "Moyer, Eric",
+            "active": true,
+            "timeZone": "America/New_York"
+          },
+          "comment": "Find a better predecessor epic. Investigate a little bit. Also find an irregularity for the schedule for Python 3.13",
+          "created": "2024-10-03T15:14:03.310-0400",
+          "updated": "2024-10-03T15:14:03.310-0400",
+          "started": "2024-10-03T00:00:00.000-0400",
+          "timeSpent": "25m",
+          "timeSpentSeconds": 1500,
+          "id": "289147",
+          "issueId": "2017905"
+        },
+        {
+          "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/issue/2017905/worklog/289150",
+          "author": {
+            "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/user?username=moyered",
+            "name": "moyered",
+            "key": "moyered",
+            "emailAddress": "eric.moyer@nih.gov",
+            "avatarUrls": {
+              "48x48": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?ownerId=moyered&avatarId=14881",
+              "24x24": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=small&ownerId=moyered&avatarId=14881",
+              "16x16": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=xsmall&ownerId=moyered&avatarId=14881",
+              "32x32": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=medium&ownerId=moyered&avatarId=14881"
+            },
+            "displayName": "Moyer, Eric",
+            "active": true,
+            "timeZone": "America/New_York"
+          },
+          "updateAuthor": {
+            "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/user?username=moyered",
+            "name": "moyered",
+            "key": "moyered",
+            "emailAddress": "eric.moyer@nih.gov",
+            "avatarUrls": {
+              "48x48": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?ownerId=moyered&avatarId=14881",
+              "24x24": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=small&ownerId=moyered&avatarId=14881",
+              "16x16": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=xsmall&ownerId=moyered&avatarId=14881",
+              "32x32": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=medium&ownerId=moyered&avatarId=14881"
+            },
+            "displayName": "Moyer, Eric",
+            "active": true,
+            "timeZone": "America/New_York"
+          },
+          "comment": "Investigate more about the Python 3.9 retirement schedule",
+          "created": "2024-10-03T15:46:18.313-0400",
+          "updated": "2024-10-03T15:46:18.313-0400",
+          "started": "2024-10-03T00:00:00.000-0400",
+          "timeSpent": "30m",
+          "timeSpentSeconds": 1800,
+          "id": "289150",
+          "issueId": "2017905"
+        },
+        {
+          "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/issue/2017905/worklog/289151",
+          "author": {
+            "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/user?username=moyered",
+            "name": "moyered",
+            "key": "moyered",
+            "emailAddress": "eric.moyer@nih.gov",
+            "avatarUrls": {
+              "48x48": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?ownerId=moyered&avatarId=14881",
+              "24x24": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=small&ownerId=moyered&avatarId=14881",
+              "16x16": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=xsmall&ownerId=moyered&avatarId=14881",
+              "32x32": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=medium&ownerId=moyered&avatarId=14881"
+            },
+            "displayName": "Moyer, Eric",
+            "active": true,
+            "timeZone": "America/New_York"
+          },
+          "updateAuthor": {
+            "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/user?username=moyered",
+            "name": "moyered",
+            "key": "moyered",
+            "emailAddress": "eric.moyer@nih.gov",
+            "avatarUrls": {
+              "48x48": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?ownerId=moyered&avatarId=14881",
+              "24x24": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=small&ownerId=moyered&avatarId=14881",
+              "16x16": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=xsmall&ownerId=moyered&avatarId=14881",
+              "32x32": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=medium&ownerId=moyered&avatarId=14881"
+            },
+            "displayName": "Moyer, Eric",
+            "active": true,
+            "timeZone": "America/New_York"
+          },
+          "comment": "Look at DemoDjango repo. Write FHIR-2615 and FHIR-2616.",
+          "created": "2024-10-03T16:06:04.103-0400",
+          "updated": "2024-10-03T16:06:04.103-0400",
+          "started": "2024-10-03T00:00:00.000-0400",
+          "timeSpent": "20m",
+          "timeSpentSeconds": 1200,
+          "id": "289151",
+          "issueId": "2017905"
+        }
+      ]
+    },
+    "archivedby": null,
+    "issuetype": {
+      "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/issuetype/10602",
+      "id": "10602",
+      "description": "",
+      "iconUrl": "https://jira.ncbi.nlm.nih.gov/secure/viewavatar?size=xsmall&avatarId=17186&avatarType=issuetype",
+      "name": "Design",
+      "subtask": false,
+      "avatarId": 17186
+    },
+    "customfield_17101": null,
+    "customfield_17100": null,
+    "customfield_19000": null,
+    "timespent": 14580,
+    "project": {
+      "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/project/19310",
+      "id": "19310",
+      "key": "FHIR",
+      "name": "FHIR",
+      "projectTypeKey": "software",
+      "avatarUrls": {
+        "48x48": "https://jira.ncbi.nlm.nih.gov/secure/projectavatar?pid=19310&avatarId=25383",
+        "24x24": "https://jira.ncbi.nlm.nih.gov/secure/projectavatar?size=small&pid=19310&avatarId=25383",
+        "16x16": "https://jira.ncbi.nlm.nih.gov/secure/projectavatar?size=xsmall&pid=19310&avatarId=25383",
+        "32x32": "https://jira.ncbi.nlm.nih.gov/secure/projectavatar?size=medium&pid=19310&avatarId=25383"
+      },
+      "projectCategory": {
+        "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/projectCategory/10064",
+        "id": "10064",
+        "description": "",
+        "name": "Genetic Resources"
+      }
+    },
+    "aggregatetimespent": 14580,
+    "customfield_11400": [
+      "com.atlassian.greenhopper.service.sprint.Sprint@731e6ddd[id=17683,rapidViewId=720,state=FUTURE,name=2024/10/22 FHIR_91,startDate=2024-10-08T15:21:00.000-04:00,endDate=2024-10-22T11:59:00.000-04:00,completeDate=<null>,activatedDate=<null>,sequence=17683,goal=<null>,synced=false,autoStartStop=false,incompleteIssuesDestinationId=<null>]"
+    ],
+    "resolutiondate": null,
+    "workratio": 22,
+    "customfield_20500": null,
+    "watches": {
+      "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/issue/FHIR-2614/watchers",
+      "watchCount": 0,
+      "isWatching": false
+    },
+    "customfield_17211": null,
+    "customfield_17210": null,
+    "created": "2024-10-03T13:03:52.000-0400",
+    "customfield_10260": null,
+    "customfield_10140": null,
+    "customfield_17216": null,
+    "customfield_17215": null,
+    "customfield_12200": null,
+    "customfield_17213": null,
+    "customfield_12202": null,
+    "customfield_12201": null,
+    "customfield_17218": null,
+    "customfield_17217": null,
+    "customfield_11504": null,
+    "customfield_11506": null,
+    "customfield_11507": null,
+    "updated": "2024-10-03T16:06:04.000-0400",
+    "customfield_17201": null,
+    "customfield_17200": null,
+    "timeoriginalestimate": 64800,
+    "customfield_17205": null,
+    "description": "*What*: Fill in the \"retire Python 3.9\" epic\r\n\r\n*Acceptance Criteria*\r\n* For every piece of Python code, we have tickets in the Retire Python 3.9 epic for\r\n** Moving from 3.9 to 3.11\r\n** Moving from 3.9 or 3.11 to 3.13\r\n\r\n*Technical Details*\r\n* Preferably, these are sized according to what migration required last time.\r\n* [The current upgrade schedule in Confluence|https://confluence.ncbi.nlm.nih.gov/x/FKJdG] (which accounts for the delayed release of Py 3.13) says that they will have Py 3.13 in DevOps Platform 1 by 21 Oct.\r\n* Epics from \"Last time\" look to be the HVARD-909 epic, which has nothing in common, and FHIR-1475 - which may.\r\n* *Estimate*: 18h",
+    "customfield_17204": null,
+    "customfield_10010": {
+      "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/customFieldOption/10072",
+      "value": "Functionality",
+      "id": "10072",
+      "disabled": false
+    },
+    "customfield_17203": null,
+    "customfield_17202": null,
+    "customfield_17209": null,
+    "customfield_17208": null,
+    "customfield_17207": null,
+    "timetracking": {
+      "originalEstimate": "2d 2h",
+      "remainingEstimate": "1d 5h 57m",
+      "timeSpent": "4h 3m",
+      "originalEstimateSeconds": 64800,
+      "remainingEstimateSeconds": 50220,
+      "timeSpentSeconds": 14580
+    },
+    "customfield_12305": {
+      "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/customFieldOption/12281",
+      "value": "Other - specify details",
+      "id": "12281",
+      "disabled": false
+    },
+    "customfield_12304": {
+      "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/customFieldOption/12272",
+      "value": "Other - specify details",
+      "id": "12272",
+      "disabled": false
+    },
+    "customfield_14603": null,
+    "customfield_12306": {
+      "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/customFieldOption/12316",
+      "value": "Specify details",
+      "id": "12316",
+      "disabled": false
+    },
+    "attachment": [],
+    "summary": "Fill in the \"retire Python 3.9\" epic",
+    "customfield_10240": "moyered(moyered)",
+    "customfield_10120": null,
+    "customfield_14601": null,
+    "customfield_18401": "Number of Issue(s) in Epic: 0",
+    "customfield_14602": null,
+    "customfield_10003": null,
+    "customfield_14600": "2|i1qetu:",
+    "environment": null,
+    "duedate": null,
+    "comment": {
+      "comments": [
+        {
+          "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/issue/2017905/comment/7633471",
+          "id": "7633471",
+          "author": {
+            "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/user?username=moyered",
+            "name": "moyered",
+            "key": "moyered",
+            "emailAddress": "eric.moyer@nih.gov",
+            "avatarUrls": {
+              "48x48": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?ownerId=moyered&avatarId=14881",
+              "24x24": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=small&ownerId=moyered&avatarId=14881",
+              "16x16": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=xsmall&ownerId=moyered&avatarId=14881",
+              "32x32": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=medium&ownerId=moyered&avatarId=14881"
+            },
+            "displayName": "Moyer, Eric",
+            "active": true,
+            "timeZone": "America/New_York"
+          },
+          "body": "{noformat:title=Result of rg -li 'py[^\\\\d]*3\\\\.?9\\b'}\r\npants\r\ndocs/fy21_recoverable_upload_procedure.md\r\ndocs/Getting_started.md\r\nresearch_study_builder/requirements/base.txt\r\ndocs/fy21_parallel_upload_procedure.md\r\nresearch_study_builder/tox.ini\r\nresearch_study_builder/README.md\r\nresearch_study_builder/dev_env.sh\r\nanalyze_har_files/requirements.txt\r\nREADME.md\r\npyproject.toml\r\npants.toml\r\nutils/resource_crud_demo.py\r\nextract_dbgap_sql_data/setup.cfg\r\nextract_dbgap_sql_data/README.md\r\nutils/splunk_clearinghouse_times_to_csv.py\r\nextract_dbgap_sql_data/tox.ini\r\nutils/requirements.integration-tests.txt\r\nutils/README.resource_crud.md\r\nutils/resource_crud.py\r\nutils/count_applog_accesses.py\r\nutils/update_fhir_metadata.sh\r\nutils/sample_auth_flow/use_passport_clearinghouse.py\r\nutils/list_publication_id_types.py\r\nutils/compare_study_files/README.md\r\nutils/sample_auth_flow/README.md\r\nutils/compare_study_files/src/BUILD\r\nutils/dbgap_fhir_load/docs/src/dbgap_fhir.html\r\nutils/dbgap_fhir_load/docs/src/dbgap_fhir_load.html\r\nutils/dbgap_fhir_load/docs/dbgap_fhir_load.html\r\nserver/etl/create_syn_data_jsonl.sh\r\nserver/smoke-test.sh\r\nutils/compare_study_files/test/BUILD\r\nutils/sample_auth_flow/requirements.txt\r\nutils/requirements.txt\r\nutils/integration-tests.py\r\nutils/return_fhir_applog_hits/return_fhir_applog_hits.py\r\nutils/return_fhir_applog_hits/requirements.txt\r\nutils/resource_crud_batch.py\r\nutils/FHIR_server_performance/FHIR_server_performance.py\r\nutils/FHIR_server_performance/requirements.txt\r\nutils/FHIR_server_performance/dev_env.sourceme\r\nutils/nitro_loader.py\r\nextract_dbgap_sql_data/pyproject.toml\r\nutils/FHIR_server_performance/test.jsonl\r\nutils/resource_loader.py\r\nutils/requirements/base.txt\r\nutils/nitro_upload.sh\r\nutils/inspect_column.py\r\n{noformat}",
+          "updateAuthor": {
+            "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/user?username=moyered",
+            "name": "moyered",
+            "key": "moyered",
+            "emailAddress": "eric.moyer@nih.gov",
+            "avatarUrls": {
+              "48x48": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?ownerId=moyered&avatarId=14881",
+              "24x24": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=small&ownerId=moyered&avatarId=14881",
+              "16x16": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=xsmall&ownerId=moyered&avatarId=14881",
+              "32x32": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=medium&ownerId=moyered&avatarId=14881"
+            },
+            "displayName": "Moyer, Eric",
+            "active": true,
+            "timeZone": "America/New_York"
+          },
+          "created": "2024-10-03T13:22:23.480-0400",
+          "updated": "2024-10-03T13:23:33.110-0400"
+        },
+        {
+          "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/issue/2017905/comment/7633484",
+          "id": "7633484",
+          "author": {
+            "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/user?username=moyered",
+            "name": "moyered",
+            "key": "moyered",
+            "emailAddress": "eric.moyer@nih.gov",
+            "avatarUrls": {
+              "48x48": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?ownerId=moyered&avatarId=14881",
+              "24x24": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=small&ownerId=moyered&avatarId=14881",
+              "16x16": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=xsmall&ownerId=moyered&avatarId=14881",
+              "32x32": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=medium&ownerId=moyered&avatarId=14881"
+            },
+            "displayName": "Moyer, Eric",
+            "active": true,
+            "timeZone": "America/New_York"
+          },
+          "body": "From a completely different source: all the directories that have python files in them.\r\n{code:bash}\r\nfind . -name \"*.py\" -print0 | xargs -0 dirname | grep -v \"site-packages\" | grep -v 'bin/pypy/lib' | grep -v '/\\.tox/' | sort -u\r\n{code}\r\n{noformat:title=Directories with Python files in main repo}\r\n./analyze_har_files\r\n./build_support/pants/pants-plugins/flake8_task\r\n./extract_dbgap_sql_data\r\n./extract_dbgap_sql_data/bin\r\n./extract_dbgap_sql_data/src/extract_dbgap_sql_data\r\n./extract_dbgap_sql_data/src/extract_dbgap_sql_data/data_extract\r\n./extract_dbgap_sql_data/src/extract_dbgap_sql_data/data_source\r\n./extract_dbgap_sql_data/tests\r\n./extract_dbgap_sql_data/tests/data_extract\r\n./extract_dbgap_sql_data/tests/data_extract/dummy_files\r\n./extract_dbgap_sql_data/ve/bin\r\n./research_study_builder\r\n./research_study_builder/src/ncbi\r\n./research_study_builder/src/ncbi/research_study_builder\r\n./research_study_builder/tests\r\n./server/etl\r\n./utils\r\n./utils/access_grp_shard_stats\r\n./utils/compare_study_files/src\r\n./utils/compare_study_files/test\r\n./utils/data-connect-trino/dbgap-data-connect\r\n./utils/dbgap_fhir_load\r\n./utils/dbgap_fhir_load/scripts\r\n./utils/dbgap_fhir_load/src\r\n./utils/dbgap_fhir_load/src/fasp\r\n./utils/dbgap_fhir_load/src/fasp/loc\r\n./utils/dbgap_fhir_load/src/fasp/runner\r\n./utils/dbgap_fhir_load/src/fasp/search\r\n./utils/dbgap_fhir_load/src/fasp/workflow\r\n./utils/dbgap_fhir_load/tests\r\n./utils/extract_codesystem/src/extract_codesystem\r\n./utils/extract_codesystem/test\r\n./utils/FHIR_server_performance\r\n./utils/postgres_ssl_test_app\r\n./utils/return_fhir_applog_hits\r\n./utils/sample_auth_flow\r\n./utils/tests\r\n{noformat}",
+          "updateAuthor": {
+            "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/user?username=moyered",
+            "name": "moyered",
+            "key": "moyered",
+            "emailAddress": "eric.moyer@nih.gov",
+            "avatarUrls": {
+              "48x48": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?ownerId=moyered&avatarId=14881",
+              "24x24": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=small&ownerId=moyered&avatarId=14881",
+              "16x16": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=xsmall&ownerId=moyered&avatarId=14881",
+              "32x32": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=medium&ownerId=moyered&avatarId=14881"
+            },
+            "displayName": "Moyer, Eric",
+            "active": true,
+            "timeZone": "America/New_York"
+          },
+          "created": "2024-10-03T13:30:58.340-0400",
+          "updated": "2024-10-03T13:31:33.287-0400"
+        },
+        {
+          "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/issue/2017905/comment/7633488",
+          "id": "7633488",
+          "author": {
+            "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/user?username=moyered",
+            "name": "moyered",
+            "key": "moyered",
+            "emailAddress": "eric.moyer@nih.gov",
+            "avatarUrls": {
+              "48x48": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?ownerId=moyered&avatarId=14881",
+              "24x24": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=small&ownerId=moyered&avatarId=14881",
+              "16x16": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=xsmall&ownerId=moyered&avatarId=14881",
+              "32x32": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=medium&ownerId=moyered&avatarId=14881"
+            },
+            "displayName": "Moyer, Eric",
+            "active": true,
+            "timeZone": "America/New_York"
+          },
+          "body": "Here are all the builds that mention Python in the main repo\r\n{code:bash}\r\ncd .teamcity/ && rg -il python\r\n{code}\r\n\r\n{noformat:title=Builds that mention Python}\r\nVariation_DbGaPOnFhir_DbPurge/buildTypes/Variation_DbGaPOnFhir_DbPurge_DbPurge.kt\r\nVariation_DbGaPOnFhir/Project.kt\r\nVariation_DbGaPOnFhir_SmartRasRedirct/buildTypes/Variation_DbGaPOnFhir_SmartRasRedirct_Build.kt\r\nVariation_DbGaPOnFhir/buildTypes/Variation_DbGaPOnFhir_TestThatSampleMetadataPassesValidation.kt\r\nVariation_DbGaPOnFhir/buildTypes/variation_dbgaponfhir_python_apps_quick_validation.kt\r\nDbGaPOnFhir_HapiFhirServer_SubProj_FhirNitroBackend/buildTypes/DbGaPOnFhir_HapiFhirServer_SubProj_FhirNitroBackend_BuildHapiFhirServerSArtifacts.kt\r\nDbGaPOnFhir_HapiFhirServer_SubProj_OnPremDbApiDeployment/buildTypes/DbGaPOnFhir_HapiFhirServer_SubProj_OnPremDbApiDeployment_BuildArtifacts.kt\r\nDbGaPOnFhir_HapiFhirServer_SubProj_OnPremDeployment/buildTypes/DbGaPOnFhir_HapiFhirServer_SubProj_OnPremHapiFhirDeployment_DeployStaging.kt\r\nDbGaPOnFhir_HapiFhirServer_SubProj_OnPremDeployment/buildTypes/DbGaPOnFhir_HapiFhirServer_SubProj_OnPremHapiFhirDeployment_DeploySterlingStaging.kt\r\nDbGaPOnFhir_HapiFhirServer_SubProj_FhirNitroBackend/buildTypes/DbGaPOnFhir_HapiFhirServer_SubProj_FhirNitroBackend_DeployStaging.kt\r\nVariation_DbGaPOnFhir_DataUpload/buildTypes/Variation_DbGaPOnFhir_DbGaPOnFhirMetadataDailyBuild.kt\r\nVariation_DbGaPOnFhir_Others_NeedDedicatedAgentFromDbSNP/buildTypes/Variation_DbGaPOnFhir_Others_DbGaPApiInfrastructureCodeUpdate.kt\r\nDbGaPOnFhir_HapiFhirServer_OnPremDeployment/buildTypes/DbGaPOnFhir_HapiFhirServer_OnPremDeployment_Config.kt\r\nDbGaPOnFhir_HapiFhirServer_OnPremDeployment/buildTypes/DbGaPOnFhir_HapiFhirServer_OnPremDeployment_DeploySterlingStaging.kt\r\nDbGaPOnFhir_HapiFhirServer_OnPremDeployment/buildTypes/DbGaPOnFhir_HapiFhirServer_OnPrem_DeployStaging.kt\r\n{noformat}",
+          "updateAuthor": {
+            "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/user?username=moyered",
+            "name": "moyered",
+            "key": "moyered",
+            "emailAddress": "eric.moyer@nih.gov",
+            "avatarUrls": {
+              "48x48": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?ownerId=moyered&avatarId=14881",
+              "24x24": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=small&ownerId=moyered&avatarId=14881",
+              "16x16": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=xsmall&ownerId=moyered&avatarId=14881",
+              "32x32": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=medium&ownerId=moyered&avatarId=14881"
+            },
+            "displayName": "Moyer, Eric",
+            "active": true,
+            "timeZone": "America/New_York"
+          },
+          "created": "2024-10-03T13:34:01.100-0400",
+          "updated": "2024-10-03T13:34:59.480-0400"
+        },
+        {
+          "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/issue/2017905/comment/7633681",
+          "id": "7633681",
+          "author": {
+            "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/user?username=moyered",
+            "name": "moyered",
+            "key": "moyered",
+            "emailAddress": "eric.moyer@nih.gov",
+            "avatarUrls": {
+              "48x48": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?ownerId=moyered&avatarId=14881",
+              "24x24": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=small&ownerId=moyered&avatarId=14881",
+              "16x16": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=xsmall&ownerId=moyered&avatarId=14881",
+              "32x32": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=medium&ownerId=moyered&avatarId=14881"
+            },
+            "displayName": "Moyer, Eric",
+            "active": true,
+            "timeZone": "America/New_York"
+          },
+          "body": "Repositories and next steps (will make a second comment with filtered list after I archive the ones I identified for archiving)\r\n||Type||Repo||Description||Status||\r\n|Repository|[dbgap-api|https://bitbucket.ncbi.nlm.nih.gov/projects/DBGFIHR/repos/dbgap-api/browse]|Product front controller for dbgap-on-fhir|No .py files|\r\n|Repository|[dbgap-fhir-clover|https://bitbucket.ncbi.nlm.nih.gov/projects/DBGFIHR/repos/dbgap-fhir-clover/browse]|remove log4j from clover core 4.4.1|No .py files|\r\n|Repository|[dbgap-fhir-clover-maven-plugin|https://bitbucket.ncbi.nlm.nih.gov/projects/DBGFIHR/repos/dbgap-fhir-clover-maven-plugin/browse]|This is the clover maven plugin that uses the dbgap-fhir-clover jar.|No .py files|\r\n|Repository|[dbgap-fhir-config|https://bitbucket.ncbi.nlm.nih.gov/projects/DBGFIHR/repos/dbgap-fhir-config/browse]|Repository for DevOps configuration files for on-premises deployments of the HAPI FHIR server|No .py files|\r\n|Fork|[dbgap-fhir-firewalled-config|https://bitbucket.ncbi.nlm.nih.gov/projects/DBGFIHR/repos/dbgap-fhir-firewalled-config/browse]|Repository for DevOps configuration files for on-premises deployments of the HAPI FHIR server, configured in \"super-protected mode\" for demonstration purposes (see FHIR-600)|No .py files|\r\n|Fork|[dbgap-fhir-jpa-pilot-config|https://bitbucket.ncbi.nlm.nih.gov/projects/DBGFIHR/repos/dbgap-fhir-jpa-pilot-config/browse]| |No .py files|\r\n|Fork|[dbgap-fhir-jpa-pilot-loader-config|https://bitbucket.ncbi.nlm.nih.gov/projects/DBGFIHR/repos/dbgap-fhir-jpa-pilot-loader-config/browse]| |No .py files|\r\n|Fork|[dbgap-fhir-jpa-pilot-use-case-2-config|https://bitbucket.ncbi.nlm.nih.gov/projects/DBGFIHR/repos/dbgap-fhir-jpa-pilot-use-case-2-config/browse]| |No .py files|\r\n|Fork|[dbgap-fhir-jpa-pilot1-config|https://bitbucket.ncbi.nlm.nih.gov/projects/DBGFIHR/repos/dbgap-fhir-jpa-pilot1-config/browse]| |No .py files|\r\n|Repository|[dbgap-fhir-nitro-config|https://bitbucket.ncbi.nlm.nih.gov/projects/DBGFIHR/repos/dbgap-fhir-nitro-config/browse]| |No .py files|\r\n|Fork|[dbgap-fhir-nitro-large-config|https://bitbucket.ncbi.nlm.nih.gov/projects/DBGFIHR/repos/dbgap-fhir-nitro-large-config/browse]| |No .py files|\r\n|Repository|[dbgap-fhir-persistent-config|https://bitbucket.ncbi.nlm.nih.gov/projects/DBGFIHR/repos/dbgap-fhir-persistent-config/browse]|Repository for DevOps configuration files for on-premises deployments - HAPI FHIR Nitro server Persistent Production Server|No .py files|\r\n|Repository|[dbgap-fhir-setup-config|https://bitbucket.ncbi.nlm.nih.gov/projects/DBGFIHR/repos/dbgap-fhir-setup-config/browse]|Repository for DevOps configuration files for on-premises deployments of the Postgres DB setup apps|No .py files|\r\n|Repository|[dbgap-on-fhir|https://bitbucket.ncbi.nlm.nih.gov/projects/DBGFIHR/repos/dbgap-on-fhir/browse]|Main code repository for the dbGAP-on-FHIR project|Needs upgrading - lists made|\r\n|Repository|[dbgap-on-fhir-frontend|https://bitbucket.ncbi.nlm.nih.gov/projects/DBGFIHR/repos/dbgap-on-fhir-frontend/browse]|{*}{{*}}DEPRECATED{{*}}{*} To be removed in RSNP-6546. Do not use|Should archive|\r\n|Repository|[dbgap-on-fhir-gcp|https://bitbucket.ncbi.nlm.nih.gov/projects/DBGFIHR/repos/dbgap-on-fhir-gcp/browse]|{*}{{*}}do not use{{*}}{*} Contains files related to GCP that we no longer use|Should archive|\r\n|Repository|[DemoDjango|https://bitbucket.ncbi.nlm.nih.gov/projects/DBGFIHR/repos/demodjango/browse]|Demo of a working Django config for sending SQL strings|Needs upgrading - not started|\r\n|Repository|[hapi-fhir-jpaserver-starter|https://bitbucket.ncbi.nlm.nih.gov/projects/DBGFIHR/repos/hapi-fhir-jpaserver-starter/browse]|{*}{{*}}TEMPORARY REPO FOR UPGRADING HAPI FHIR{{*}}{*} do not use|Should archive|\r\n|Repository|[Public Documentation|https://bitbucket.ncbi.nlm.nih.gov/projects/DBGFIHR/repos/public-documentation/browse]|User-level documentation|Needs upgrading - not started|\r\n|Repository|[SmartRasRedirect|https://bitbucket.ncbi.nlm.nih.gov/projects/DBGFIHR/repos/smartrasredirect/browse]|Java/Finatra version of a redirector from Smart to RAS|Should archive (No py files)|\r\n|Fork|[SmartRasRedirect-Config|https://bitbucket.ncbi.nlm.nih.gov/projects/DBGFIHR/repos/smartrasredirect-config/browse]| |Should archive (No py files)|\r\n|Repository|[TL Tool|https://bitbucket.ncbi.nlm.nih.gov/projects/DBGFIHR/repos/tl-tool/browse]|Tools for use by tech leads (primarily the FHIR team TL)|No need to upgrade (Python 3.12)|\r\n|Repository|[zzz-inactive-dbGaP FHIR Mapping|https://bitbucket.ncbi.nlm.nih.gov/projects/DBGFIHR/repos/zzz-inactive-dbgap-fhir-mapping/browse]| |Should archive|",
+          "updateAuthor": {
+            "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/user?username=moyered",
+            "name": "moyered",
+            "key": "moyered",
+            "emailAddress": "eric.moyer@nih.gov",
+            "avatarUrls": {
+              "48x48": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?ownerId=moyered&avatarId=14881",
+              "24x24": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=small&ownerId=moyered&avatarId=14881",
+              "16x16": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=xsmall&ownerId=moyered&avatarId=14881",
+              "32x32": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=medium&ownerId=moyered&avatarId=14881"
+            },
+            "displayName": "Moyer, Eric",
+            "active": true,
+            "timeZone": "America/New_York"
+          },
+          "created": "2024-10-03T14:17:46.777-0400",
+          "updated": "2024-10-03T14:26:58.467-0400"
+        },
+        {
+          "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/issue/2017905/comment/7633707",
+          "id": "7633707",
+          "author": {
+            "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/user?username=moyered",
+            "name": "moyered",
+            "key": "moyered",
+            "emailAddress": "eric.moyer@nih.gov",
+            "avatarUrls": {
+              "48x48": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?ownerId=moyered&avatarId=14881",
+              "24x24": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=small&ownerId=moyered&avatarId=14881",
+              "16x16": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=xsmall&ownerId=moyered&avatarId=14881",
+              "32x32": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=medium&ownerId=moyered&avatarId=14881"
+            },
+            "displayName": "Moyer, Eric",
+            "active": true,
+            "timeZone": "America/New_York"
+          },
+          "body": "Repositories filtered for ones that need work and next steps\r\n||Type||Repo||Description||Status||\r\n|Repository|[dbgap-on-fhir|https://bitbucket.ncbi.nlm.nih.gov/projects/DBGFIHR/repos/dbgap-on-fhir/browse]|Main code repository for the dbGAP-on-FHIR project|Needs upgrading - lists made|\r\n|Repository|[DemoDjango|https://bitbucket.ncbi.nlm.nih.gov/projects/DBGFIHR/repos/demodjango/browse]|Demo of a working Django config for sending SQL strings|Needs upgrading - not started|\r\n|Repository|[Public Documentation|https://bitbucket.ncbi.nlm.nih.gov/projects/DBGFIHR/repos/public-documentation/browse]|User-level documentation|Needs upgrading - not started|",
+          "updateAuthor": {
+            "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/user?username=moyered",
+            "name": "moyered",
+            "key": "moyered",
+            "emailAddress": "eric.moyer@nih.gov",
+            "avatarUrls": {
+              "48x48": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?ownerId=moyered&avatarId=14881",
+              "24x24": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=small&ownerId=moyered&avatarId=14881",
+              "16x16": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=xsmall&ownerId=moyered&avatarId=14881",
+              "32x32": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=medium&ownerId=moyered&avatarId=14881"
+            },
+            "displayName": "Moyer, Eric",
+            "active": true,
+            "timeZone": "America/New_York"
+          },
+          "created": "2024-10-03T14:28:40.643-0400",
+          "updated": "2024-10-03T14:28:40.643-0400"
+        },
+        {
+          "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/issue/2017905/comment/7633904",
+          "id": "7633904",
+          "author": {
+            "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/user?username=moyered",
+            "name": "moyered",
+            "key": "moyered",
+            "emailAddress": "eric.moyer@nih.gov",
+            "avatarUrls": {
+              "48x48": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?ownerId=moyered&avatarId=14881",
+              "24x24": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=small&ownerId=moyered&avatarId=14881",
+              "16x16": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=xsmall&ownerId=moyered&avatarId=14881",
+              "32x32": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=medium&ownerId=moyered&avatarId=14881"
+            },
+            "displayName": "Moyer, Eric",
+            "active": true,
+            "timeZone": "America/New_York"
+          },
+          "body": "Python 3.13 was supposed to be released on Oct 1. However, a recent announcement says Oct 7. So, we'll probably have to wait until after the written install date for SYS to install it on the machines - though I expect it in October.",
+          "updateAuthor": {
+            "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/user?username=moyered",
+            "name": "moyered",
+            "key": "moyered",
+            "emailAddress": "eric.moyer@nih.gov",
+            "avatarUrls": {
+              "48x48": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?ownerId=moyered&avatarId=14881",
+              "24x24": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=small&ownerId=moyered&avatarId=14881",
+              "16x16": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=xsmall&ownerId=moyered&avatarId=14881",
+              "32x32": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=medium&ownerId=moyered&avatarId=14881"
+            },
+            "displayName": "Moyer, Eric",
+            "active": true,
+            "timeZone": "America/New_York"
+          },
+          "created": "2024-10-03T15:15:17.937-0400",
+          "updated": "2024-10-03T15:15:17.937-0400"
+        }
+      ],
+      "maxResults": 6,
+      "total": 6,
+      "startAt": 0
+    }
+  }
+}
