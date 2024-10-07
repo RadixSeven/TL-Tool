@@ -61,13 +61,36 @@ class IssueTypeDict(TypedDict):  # noqa: D101
     subtask: bool
 
 
+class AssigneeDict(TypedDict):  # noqa: D101
+    self: str
+    name: str
+    key: str
+    emailAddress: str
+    displayName: str
+    active: bool
+    timeZone: str
+
+
+class TimeTrackingDict(TypedDict):  # noqa: D101
+    originalEstimate: str
+    originalEstimateSeconds: int
+    remainingEstimate: str
+    remainingEstimateSeconds: int
+    timeSpent: str
+    timeSpentSeconds: int
+
+
 class RawJiraIssueFields(TypedDict):  # noqa: D101
     summary: str
     worklog: WorkLogsDict
     components: list[ComponentDict]
     # noinspection SpellCheckingInspection
     issuetype: dict[str, Any]
-    updated: str  # This may be a hallucination
+    updated: str
+    description: str
+    # noinspection SpellCheckingInspection
+    timetracking: TimeTrackingDict
+    assignee: AssigneeDict | None
 
 
 class RawJiraIssueDict(TypedDict):  # noqa: D101

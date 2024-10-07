@@ -4,8 +4,10 @@ import json
 import logging
 import sqlite3
 import time
+from collections import defaultdict
 from collections.abc import Callable, Generator, Iterable
 from contextlib import AbstractContextManager, contextmanager
+from dataclasses import dataclass
 from pathlib import Path
 from typing import cast
 
@@ -44,6 +46,77 @@ class BearerAuth(AuthBase):
         if r.headers is not None:
             r.headers["Authorization"] = f"Bearer {self._token}"
         return r
+
+
+# noinspection SpellCheckingInspection
+TIME_TRACKING = "timetracking"
+# noinspection SpellCheckingInspection
+WORK_LOGS = "worklogs"
+
+
+@dataclass
+class Issue:
+    """A Jira issue with some clean-up and aggregation
+
+    Attributes:
+        key: The issue key.
+        json_data: The JSON data for the issue.
+        assignee_name: The name of the assignee or None if unassigned.
+        last_updated: The last time the issue was updated.
+        seconds_spent: A dictionary of user keys to the number of seconds spent.
+        original_seconds_estimated: The original estimate in seconds.
+    """
+
+    key: str
+    json_data: str
+    assignee_name: str | None
+    last_updated: str
+    seconds_spent: dict[str, int]
+    original_seconds_estimated: int
+
+    @property
+    def total_seconds_spent(self) -> int:
+        """
+        Calculate the total number of seconds spent on the issue.
+
+        Returns:
+            The total number of seconds spent on the issue.
+        """
+        return sum(self.seconds_spent.values())
+
+    @staticmethod
+    def from_raw(raw_issue: RawJiraIssueDict) -> "Issue":
+        """
+        Convert a RawJiraIssueDict to an Issue.
+
+        Args:
+            raw_issue: The raw issue data to convert.
+
+        Returns:
+            The Issue object created from the raw issue data.
+        """
+        original_estimate_seconds: int | None = (
+            raw_issue["fields"]
+            .get(TIME_TRACKING, {})
+            .get("originalEstimateSeconds", None)
+        )
+        work_logs = raw_issue["fields"].get("worklog", {}).get(WORK_LOGS, [])
+
+        assignee_field = raw_issue["fields"].get("assignee", {})
+        assignee = assignee_field.get("name", None) if assignee_field else None
+        seconds_spent = defaultdict(int)
+        for work_log in work_logs:
+            seconds_spent[work_log["author"]["key"]] += work_log[
+                "timeSpentSeconds"
+            ]
+        return Issue(
+            key=raw_issue["key"],
+            json_data=json.dumps(raw_issue),
+            last_updated=raw_issue["fields"]["updated"],
+            seconds_spent=seconds_spent,
+            original_seconds_estimated=original_estimate_seconds,
+            assignee_name=assignee,
+        )
 
 
 class JiraCacheUpdater:
@@ -94,9 +167,24 @@ class JiraCacheUpdater:
                 CREATE TABLE IF NOT EXISTS issues (
                     key TEXT PRIMARY KEY,
                     json_data TEXT,
+                    -- The name of the assignee or None if unassigned
+                    -- For the same individual, this should be the
+                    -- same as the key in the seconds_spent table
+                    assignee_name TEXT,
                     last_updated TEXT,
+                    original_seconds_estimated INTEGER,
                     -- Record the time the issue was last updated in the database
                     cache_time TEXT NOT NULL DEFAULT current_timestamp
+                )
+            """
+            )
+            cursor.execute(
+                """
+                CREATE TABLE IF NOT EXISTS seconds_spent (
+                    issue_key TEXT NOT NULL,
+                    user_key TEXT NOT NULL,
+                    seconds INTEGER NOT NULL,
+                    PRIMARY KEY (issue_key, user_key)
                 )
             """
             )
@@ -120,7 +208,8 @@ class JiraCacheUpdater:
         with self.connection_supplier() as conn:
             cursor = conn.cursor()
             cursor.execute(
-                "SELECT last_check_time FROM checks ORDER BY last_check_time DESC LIMIT 1"
+                "SELECT last_check_time FROM checks "
+                "ORDER BY last_check_time DESC LIMIT 1"
             )
             result = cursor.fetchone()
             return result[0] if result else None
@@ -148,16 +237,41 @@ class JiraCacheUpdater:
         """
         with self.connection_supplier() as conn:
             log.debug(f"Updating issue {issue['key']}")
+            issue = Issue.from_raw(issue)
             cursor = conn.cursor()
             cursor.execute(
                 """
-                INSERT INTO issues (key, json_data, last_updated) VALUES (?, ?, ?)
+                INSERT INTO issues (
+                    key,
+                    json_data,
+                    assignee_name,
+                    last_updated,
+                    original_seconds_estimated
+                ) VALUES (?, ?, ?, ?, ?, ?)
                 ON CONFLICT(key) DO UPDATE SET
                     json_data=excluded.json_data,
+                    assignee_name=excluded.assignee_name
                     last_updated=excluded.last_updated
+                    original_seconds_estimated=excluded.original_seconds_estimated
             """,
-                (issue["key"], json.dumps(issue), issue["fields"]["updated"]),
+                (
+                    issue.key,
+                    issue.json_data,
+                    issue.assignee_name,
+                    issue.last_updated,
+                    issue.original_seconds_estimated,
+                ),
             )
+            for user_name, seconds_spent in issue.seconds_spent.items():
+                cursor.execute(
+                    """
+                    INSERT INTO seconds_spent (issue_key, user_key, seconds)
+                    VALUES (?, ?, ?)
+                    ON CONFLICT(issue_key, user_key) DO UPDATE SET
+                        seconds=excluded.seconds
+                    """,
+                    (issue.key, user_name, seconds_spent),
+                )
             conn.commit()
 
     def run_check(self) -> None:
