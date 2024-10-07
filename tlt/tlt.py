@@ -278,7 +278,7 @@ def wait_for_cache_update(
 
         most_recent_change = get_most_recent_cache_time(connection_supplier)
         change_datetime = (
-            datetime.fromisoformat(most_recent_change)
+            datetime.fromisoformat(most_recent_change + "Z")
             if most_recent_change
             else None
         )
