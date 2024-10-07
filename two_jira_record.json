@@ -1,0 +1,324 @@
+{
+  "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+  "id": "2017013",
+  "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/issue/2017013",
+  "key": "FHIR-2612",
+  "fields": {
+    "customfield_19200": null,
+    "customfield_19201": null,
+    "customfield_19202": null,
+    "customfield_19203": null,
+    "customfield_17300": null,
+    "customfield_10470": null,
+    "customfield_18911": null,
+    "customfield_10471": null,
+    "customfield_18912": null,
+    "fixVersions": [],
+    "customfield_10110": null,
+    "customfield_10473": null,
+    "customfield_17301": null,
+    "customfield_10111": null,
+    "customfield_13500": "2024-10-02 10:17:01.0",
+    "customfield_19204": null,
+    "resolution": null,
+    "customfield_10112": null,
+    "customfield_10113": null,
+    "customfield_13501": null,
+    "customfield_18910": null,
+    "lastViewed": "2024-10-02T11:40:53.122-0400",
+    "customfield_16600": null,
+    "customfield_18903": null,
+    "priority": {
+      "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/priority/6",
+      "iconUrl": "https://jira.ncbi.nlm.nih.gov/images/icons/arrow_up_blue_small.gif",
+      "name": "Normal",
+      "id": "6"
+    },
+    "labels": [],
+    "customfield_11303": null,
+    "customfield_11304": null,
+    "customfield_11305": null,
+    "aggregatetimeoriginalestimate": 7200,
+    "timeestimate": 7200,
+    "versions": [],
+    "issuelinks": [
+      {
+        "id": "966709",
+        "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/issueLink/966709",
+        "type": {
+          "id": "10020",
+          "name": "Cloners",
+          "inward": "is cloned by",
+          "outward": "is cloned from",
+          "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/issueLinkType/10020"
+        },
+        "outwardIssue": {
+          "id": "2016626",
+          "key": "FHIR-2611",
+          "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/issue/2016626",
+          "fields": {
+            "summary": "(Due 27 Nov) 2024 Anti-harassment training for Jeff",
+            "status": {
+              "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/status/1",
+              "description": "The issue is open and ready for the assignee to start work on it.",
+              "iconUrl": "https://jira.ncbi.nlm.nih.gov/images/icons/statuses/open.png",
+              "name": "Open",
+              "id": "1",
+              "statusCategory": {
+                "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/statuscategory/2",
+                "id": 2,
+                "key": "new",
+                "colorName": "default",
+                "name": "To Do"
+              }
+            },
+            "priority": {
+              "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/priority/6",
+              "iconUrl": "https://jira.ncbi.nlm.nih.gov/images/icons/arrow_up_blue_small.gif",
+              "name": "Normal",
+              "id": "6"
+            },
+            "issuetype": {
+              "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/issuetype/65",
+              "id": "65",
+              "description": "This issue type is reserved for discussion tickets",
+              "iconUrl": "https://jira.ncbi.nlm.nih.gov/images/icons/issuetypes/undefined.png",
+              "name": "Discussion",
+              "subtask": false
+            }
+          }
+        }
+      }
+    ],
+    "assignee": {
+      "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/user?username=xiaon3",
+      "name": "xiaon3",
+      "key": "JIRAUSER71002",
+      "emailAddress": "naijia.xiao@nih.gov",
+      "avatarUrls": {
+        "48x48": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?ownerId=JIRAUSER71002&avatarId=30180",
+        "24x24": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=small&ownerId=JIRAUSER71002&avatarId=30180",
+        "16x16": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=xsmall&ownerId=JIRAUSER71002&avatarId=30180",
+        "32x32": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=medium&ownerId=JIRAUSER71002&avatarId=30180"
+      },
+      "displayName": "Xiao, Naijia",
+      "active": true,
+      "timeZone": "America/New_York"
+    },
+    "status": {
+      "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/status/1",
+      "description": "The issue is open and ready for the assignee to start work on it.",
+      "iconUrl": "https://jira.ncbi.nlm.nih.gov/images/icons/statuses/open.png",
+      "name": "Open",
+      "id": "1",
+      "statusCategory": {
+        "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/statuscategory/2",
+        "id": 2,
+        "key": "new",
+        "colorName": "default",
+        "name": "To Do"
+      }
+    },
+    "components": [
+      {
+        "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/component/30596",
+        "id": "30596",
+        "name": "Meetings and Overhead"
+      }
+    ],
+    "customfield_17003": null,
+    "customfield_17002": null,
+    "customfield_17001": [],
+    "customfield_17000": null,
+    "customfield_10052": null,
+    "customfield_17005": null,
+    "customfield_17004": null,
+    "customfield_11300": null,
+    "customfield_11301": null,
+    "customfield_17801": null,
+    "customfield_11302": null,
+    "archiveddate": null,
+    "customfield_17800": null,
+    "customfield_10600": "9223372036854775807",
+    "aggregatetimeestimate": 7200,
+    "customfield_20000": [],
+    "creator": {
+      "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/user?username=xiaon3",
+      "name": "xiaon3",
+      "key": "JIRAUSER71002",
+      "emailAddress": "naijia.xiao@nih.gov",
+      "avatarUrls": {
+        "48x48": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?ownerId=JIRAUSER71002&avatarId=30180",
+        "24x24": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=small&ownerId=JIRAUSER71002&avatarId=30180",
+        "16x16": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=xsmall&ownerId=JIRAUSER71002&avatarId=30180",
+        "32x32": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=medium&ownerId=JIRAUSER71002&avatarId=30180"
+      },
+      "displayName": "Xiao, Naijia",
+      "active": true,
+      "timeZone": "America/New_York"
+    },
+    "customfield_20001": null,
+    "subtasks": [],
+    "customfield_10163": [
+      "moyered(moyered)",
+      "xiaon3(JIRAUSER71002)"
+    ],
+    "reporter": {
+      "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/user?username=moyered",
+      "name": "moyered",
+      "key": "moyered",
+      "emailAddress": "eric.moyer@nih.gov",
+      "avatarUrls": {
+        "48x48": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?ownerId=moyered&avatarId=14881",
+        "24x24": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=small&ownerId=moyered&avatarId=14881",
+        "16x16": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=xsmall&ownerId=moyered&avatarId=14881",
+        "32x32": "https://jira.ncbi.nlm.nih.gov/secure/useravatar?size=medium&ownerId=moyered&avatarId=14881"
+      },
+      "displayName": "Moyer, Eric",
+      "active": true,
+      "timeZone": "America/New_York"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 7200,
+      "percent": 0
+    },
+    "customfield_13312": "0.0",
+    "customfield_16700": "{summaryBean=com.atlassian.jira.plugin.devstatus.rest.SummaryBean@7192b6eb[summary={pullrequest=com.atlassian.jira.plugin.devstatus.rest.SummaryItemBean@6ee5310a[overall=PullRequestOverallBean{stateCount=0, state='OPEN', details=PullRequestOverallDetails{openCount=0, mergedCount=0, declinedCount=0}},byInstanceType={}], build=com.atlassian.jira.plugin.devstatus.rest.SummaryItemBean@ca10c14[overall=com.atlassian.jira.plugin.devstatus.summary.beans.BuildOverallBean@4b0b11eb[failedBuildCount=0,successfulBuildCount=0,unknownBuildCount=0,count=0,lastUpdated=<null>,lastUpdatedTimestamp=<null>],byInstanceType={}], review=com.atlassian.jira.plugin.devstatus.rest.SummaryItemBean@29e4b3f5[overall=com.atlassian.jira.plugin.devstatus.summary.beans.ReviewsOverallBean@473a3476[stateCount=0,state=<null>,dueDate=<null>,overDue=false,count=0,lastUpdated=<null>,lastUpdatedTimestamp=<null>],byInstanceType={}], deployment-environment=com.atlassian.jira.plugin.devstatus.rest.SummaryItemBean@437f4129[overall=com.atlassian.jira.plugin.devstatus.summary.beans.DeploymentOverallBean@50e884e4[topEnvironments=[],showProjects=false,successfulCount=0,count=0,lastUpdated=<null>,lastUpdatedTimestamp=<null>],byInstanceType={}], repository=com.atlassian.jira.plugin.devstatus.rest.SummaryItemBean@5c9fee17[overall=com.atlassian.jira.plugin.devstatus.summary.beans.CommitOverallBean@4a10f876[count=0,lastUpdated=<null>,lastUpdatedTimestamp=<null>],byInstanceType={}], branch=com.atlassian.jira.plugin.devstatus.rest.SummaryItemBean@73df8e14[overall=com.atlassian.jira.plugin.devstatus.summary.beans.BranchOverallBean@6704fb2f[count=0,lastUpdated=<null>,lastUpdatedTimestamp=<null>],byInstanceType={}]},errors=[],configErrors=[]], devSummaryJson={\"cachedValue\":{\"errors\":[],\"configErrors\":[],\"summary\":{\"pullrequest\":{\"overall\":{\"count\":0,\"lastUpdated\":null,\"stateCount\":0,\"state\":\"OPEN\",\"details\":{\"openCount\":0,\"mergedCount\":0,\"declinedCount\":0,\"total\":0},\"open\":true},\"byInstanceType\":{}},\"build\":{\"overall\":{\"count\":0,\"lastUpdated\":null,\"failedBuildCount\":0,\"successfulBuildCount\":0,\"unknownBuildCount\":0},\"byInstanceType\":{}},\"review\":{\"overall\":{\"count\":0,\"lastUpdated\":null,\"stateCount\":0,\"state\":null,\"dueDate\":null,\"overDue\":false,\"completed\":false},\"byInstanceType\":{}},\"deployment-environment\":{\"overall\":{\"count\":0,\"lastUpdated\":null,\"topEnvironments\":[],\"showProjects\":false,\"successfulCount\":0},\"byInstanceType\":{}},\"repository\":{\"overall\":{\"count\":0,\"lastUpdated\":null},\"byInstanceType\":{}},\"branch\":{\"overall\":{\"count\":0,\"lastUpdated\":null},\"byInstanceType\":{}}}},\"isStale\":false}}",
+    "customfield_17903": null,
+    "progress": {
+      "progress": 0,
+      "total": 7200,
+      "percent": 0
+    },
+    "votes": {
+      "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/issue/FHIR-2612/votes",
+      "votes": 0,
+      "hasVoted": false
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "archivedby": null,
+    "issuetype": {
+      "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/issuetype/65",
+      "id": "65",
+      "description": "This issue type is reserved for discussion tickets",
+      "iconUrl": "https://jira.ncbi.nlm.nih.gov/images/icons/issuetypes/undefined.png",
+      "name": "Discussion",
+      "subtask": false
+    },
+    "customfield_17101": null,
+    "customfield_17100": null,
+    "customfield_19000": null,
+    "timespent": null,
+    "project": {
+      "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/project/19310",
+      "id": "19310",
+      "key": "FHIR",
+      "name": "FHIR",
+      "projectTypeKey": "software",
+      "avatarUrls": {
+        "48x48": "https://jira.ncbi.nlm.nih.gov/secure/projectavatar?pid=19310&avatarId=25383",
+        "24x24": "https://jira.ncbi.nlm.nih.gov/secure/projectavatar?size=small&pid=19310&avatarId=25383",
+        "16x16": "https://jira.ncbi.nlm.nih.gov/secure/projectavatar?size=xsmall&pid=19310&avatarId=25383",
+        "32x32": "https://jira.ncbi.nlm.nih.gov/secure/projectavatar?size=medium&pid=19310&avatarId=25383"
+      },
+      "projectCategory": {
+        "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/projectCategory/10064",
+        "id": "10064",
+        "description": "",
+        "name": "Genetic Resources"
+      }
+    },
+    "aggregatetimespent": null,
+    "customfield_11400": null,
+    "resolutiondate": null,
+    "workratio": 0,
+    "customfield_20500": null,
+    "watches": {
+      "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/issue/FHIR-2612/watchers",
+      "watchCount": 0,
+      "isWatching": false
+    },
+    "customfield_17211": null,
+    "customfield_17210": null,
+    "created": "2024-10-02T10:17:01.000-0400",
+    "customfield_10260": null,
+    "customfield_10140": null,
+    "customfield_17216": null,
+    "customfield_17215": null,
+    "customfield_12200": null,
+    "customfield_17213": null,
+    "customfield_12202": null,
+    "customfield_12201": null,
+    "customfield_17218": null,
+    "customfield_17217": null,
+    "customfield_11504": null,
+    "customfield_11506": null,
+    "customfield_11507": null,
+    "updated": "2024-10-02T11:40:52.000-0400",
+    "customfield_17201": null,
+    "customfield_17200": null,
+    "timeoriginalestimate": 7200,
+    "customfield_17205": null,
+    "description": "{*}What{*}: Complete the 2024 Anti-harassment Training\r\n{*}Why{*}: Federal mandate\r\n{*}Who{*}: Co-workers\r\n\r\n*Acceptance Criteria*\r\n * Assignee has completed the 2024 Anti-harassment training and sent a message to Eric for them to update the MGV training spreadsheet\r\n * Assignee has attached the certificate to this ticket\r\n\r\n*Technical Details*\r\n* Original email message{quote}{color:#000000}Dear NLM Colleagues,{color}\r\n\r\n{color:#000000}NIH has launched the {color}mandatory Annual Anti-Harassment Training for 2024{color:#000000}. This training is one of several measures established to help eliminate harassment {color}across NIH{color:#000000}. {color}{color:#000000} {color}*{color:#000000}All NLM staff – federal employees, trainees, fellows, and contractors – are required to take this training which is due December 11, 2024.{color}* {color:#000000} {color}{color:#000000}NIH staff who fail to complete the training will have their active directory accounts and access to their computer and emails disabled until the requirement is met. {color}\r\n\r\n{color:#000000}The {color}annual Anti-Harassment {color:#000000}training requirement can be fulfilled in one of two ways: {color}  \r\n * B{color:#000000}y completing the {color}[{color:#0000FF}self-paced, online 2024 Anti-Harassment training module{color}|https://gcc02.safelinks.protection.outlook.com/?url=https%3A%2F%2Flms.learning.hhs.gov%2FSaba%2FWeb%2FMain%2Fgoto%2FGuestOfferingDetails%3FofferingId%3Ddowbt000000000056697%26isFromDeeplink%3Dtrue&data=05%7C02%7Ceric.moyer%40nih.gov%7Cb2d28a65e5f0483783fc08dce179e1d5%7C14b77578977342d58507251ca2dc2b06%7C0%7C0%7C638633161085091321%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C0%7C%7C%7C&sdata=pYGiPDg9pbrczKxBGhsW48hjDs8ci3VwfsGO5pcsD%2Fs%3D&reserved=0]{color:#000000}; or  {color}\r\n * {color:#000000}By attending any of {color}[{color:#0000FF}the Office of Equity, Diversity, and Inclusion’s (EDI) instructor-led training offerings{color}|https://www.edi.nih.gov/services/EDI-training#calendar]{+}{color:#0000FF}.{color}{+}{color:#0000FF} {color}\r\n\r\n{color:#000000}If you have any questions about the training, please contact {color}[{color:#467886}EDI{color}|https://www.edi.nih.gov/training/contact]{color:#000000} via their website, or you may contact the NLM coordinators for mandatory training, {color}[{color:#467886}Kathel Dunn{color}|mailto:kathel.dunn@nih.gov]{color:#000000} or {color}[{color:#467886}Vivian Le{color}|mailto:Vivian.Le@nih.gov]{color:#000000}. {color}\r\n\r\n{color:#000000}Thank you for your compliance with this mandatory training requirement.{color}\r\n\r\n{color:#000000}Sincerely,\r\n{color}{color:#000000}Victoria Rucker\r\n{color}{color:#000000}NLM Deputy Executive Officer {color}\r\n{quote}\r\n * NIH sent an email saying that the due date was 11 Dec. They will start bothering upper management if we haven't completed by two weeks before the due date. So, the actual due date is 27 Nov.\r\n * Estimate: 2h\r\n ** Eric: based on Jeff's last few years' training times. Mean: 120 minutes Median: 120 minutes.\r\n||Year||Minutes||\r\n|23|180|\r\n|22|120|\r\n|21|60|\r\n\r\n",
+    "customfield_17204": null,
+    "customfield_10010": {
+      "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/customFieldOption/10072",
+      "value": "Functionality",
+      "id": "10072",
+      "disabled": false
+    },
+    "customfield_17203": null,
+    "customfield_17202": null,
+    "customfield_17209": null,
+    "customfield_17208": null,
+    "customfield_17207": null,
+    "timetracking": {
+      "originalEstimate": "2h",
+      "remainingEstimate": "2h",
+      "originalEstimateSeconds": 7200,
+      "remainingEstimateSeconds": 7200
+    },
+    "customfield_12305": {
+      "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/customFieldOption/12281",
+      "value": "Other - specify details",
+      "id": "12281",
+      "disabled": false
+    },
+    "customfield_12304": {
+      "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/customFieldOption/12272",
+      "value": "Other - specify details",
+      "id": "12272",
+      "disabled": false
+    },
+    "customfield_14603": null,
+    "customfield_12306": {
+      "self": "https://jira.ncbi.nlm.nih.gov/rest/api/2/customFieldOption/12316",
+      "value": "Specify details",
+      "id": "12316",
+      "disabled": false
+    },
+    "attachment": [],
+    "summary": "(Due 27 Nov) 2024 Anti-harassment training for Naijia",
+    "customfield_10240": "moyered(moyered)",
+    "customfield_10120": null,
+    "customfield_14601": null,
+    "customfield_18401": "Number of Issue(s) in Epic: 0",
+    "customfield_14602": null,
+    "customfield_10003": null,
+    "customfield_14600": "2|i2disw:",
+    "environment": null,
+    "duedate": null,
+    "comment": {
+      "comments": [],
+      "maxResults": 0,
+      "total": 0,
+      "startAt": 0
+    }
+  }
+}
