@@ -94,7 +94,9 @@ class JiraCacheUpdater:
                 CREATE TABLE IF NOT EXISTS issues (
                     key TEXT PRIMARY KEY,
                     json_data TEXT,
-                    last_updated TEXT
+                    last_updated TEXT,
+                    -- Record the time the issue was last updated in the database
+                    cache_time TEXT NOT NULL DEFAULT current_timestamp
                 )
             """
             )

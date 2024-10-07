@@ -8,6 +8,7 @@ import sqlite3
 import sys
 import time
 from dataclasses import dataclass
+from datetime import datetime, timedelta
 from multiprocessing import Process
 from pathlib import Path
 
@@ -64,20 +65,37 @@ def read_token(token_path: Path) -> str:
         return f.read().strip()
 
 
-def get_sorted_update_times(conn_supplier: ConnectionSupplier) -> list[str]:
+def get_most_recent_cache_time(conn_supplier: ConnectionSupplier) -> str | None:
     """
-    Get a sorted list of issue update times from the cache database.
+    Get the most recent cache time from the cache database.
 
     Args:
         conn_supplier: Supplier for database connections.
 
     Returns:
-        List[str]: A sorted list of issue update times.
+        The most recent cache time or None if the cache is empty.
     """
     with conn_supplier() as conn:
         cursor = conn.cursor()
-        cursor.execute("SELECT last_updated FROM issues ORDER BY last_updated")
-        return [row[0] for row in cursor.fetchall()]
+        cursor.execute("SELECT MAX(cache_time) FROM issues")
+        result = cursor.fetchone()
+        return result[0] if result else None
+
+
+def get_num_issues(conn_supplier: ConnectionSupplier) -> int:
+    """
+    Get the number of issues in the cache database.
+
+    Args:
+        conn_supplier: Supplier for database connections.
+
+    Returns:
+        The number of issues in the cache database.
+    """
+    with conn_supplier() as conn:
+        cursor = conn.cursor()
+        cursor.execute("SELECT COUNT(*) FROM issues")
+        return cursor.fetchone()[0]
 
 
 @dataclass
@@ -247,20 +265,30 @@ def wait_for_cache_update(
 
     Args:
         connection_supplier: Supplier for database connections.
-        seconds_between_checks: Seconds between checks.
+        seconds_between_checks: Seconds between when the updater checks.
     """
     print("Waiting for cache to update ...")  # noqa: T201
-    prev_update_times: list[str] = []
+    idle_to_wait_for = timedelta(seconds=seconds_between_checks * 3)
     while True:
         # The delay between checking the db also includes the time to read
         # the db, not just the time to sleep
         time.sleep(seconds_between_checks * 1.5)
-        current_update_times = get_sorted_update_times(connection_supplier)
-        print(f"{len(current_update_times)} issues ...")  # noqa: T201
+        num_issues = get_num_issues(connection_supplier)
+        print(f"{num_issues} issues ...")  # noqa: T201
 
-        if current_update_times == prev_update_times and current_update_times:
+        most_recent_change = get_most_recent_cache_time(connection_supplier)
+        change_datetime = (
+            datetime.fromisoformat(most_recent_change)
+            if most_recent_change
+            else None
+        )
+
+        if (
+            change_datetime
+            and change_datetime - datetime.now(tz=change_datetime.tzinfo)
+            >= idle_to_wait_for
+        ):
             break
-        prev_update_times = current_update_times
     print("Finished.")  # noqa: T201
 
 
