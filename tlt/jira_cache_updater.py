@@ -15,7 +15,12 @@ import requests
 from requests.auth import AuthBase
 from requests_ratelimiter import LimiterSession
 
-from tlt.raw_issue_dict import RawJiraIssueDict
+from tlt.raw_issue_dict import (
+    AssigneeDict,
+    RawJiraIssueDict,
+    TimeTrackingDict,
+    WorkLogDict,
+)
 
 log = logging.getLogger(__name__)
 
@@ -72,7 +77,7 @@ class Issue:
     assignee_name: str | None
     last_updated: str
     seconds_spent: dict[str, int]
-    original_seconds_estimated: int
+    original_seconds_estimated: int | None
 
     @property
     def total_seconds_spent(self) -> int:
@@ -95,16 +100,18 @@ class Issue:
         Returns:
             The Issue object created from the raw issue data.
         """
-        original_estimate_seconds: int | None = (
-            raw_issue["fields"]
-            .get(TIME_TRACKING, {})
-            .get("originalEstimateSeconds", None)
+        fields = raw_issue["fields"]
+        original_estimate_seconds: int | None = cast(
+            TimeTrackingDict, fields.get(TIME_TRACKING, {})
+        ).get("originalEstimateSeconds", None)
+        work_logs = cast(
+            list[WorkLogDict],
+            raw_issue["fields"].get("worklog", {}).get(WORK_LOGS, []),
         )
-        work_logs = raw_issue["fields"].get("worklog", {}).get(WORK_LOGS, [])
 
-        assignee_field = raw_issue["fields"].get("assignee", {})
+        assignee_field = cast(AssigneeDict, fields.get("assignee", {}))
         assignee = assignee_field.get("name", None) if assignee_field else None
-        seconds_spent = defaultdict(int)
+        seconds_spent: dict[str, int] = defaultdict(int)
         for work_log in work_logs:
             seconds_spent[work_log["author"]["key"]] += work_log[
                 "timeSpentSeconds"
@@ -228,16 +235,16 @@ class JiraCacheUpdater:
             )
             conn.commit()
 
-    def _update_issue(self, issue: RawJiraIssueDict) -> None:
+    def _update_issue(self, raw_issue: RawJiraIssueDict) -> None:
         """
         Insert or update an issue in the database.
 
         Args:
-            issue: The issue data to be inserted or updated.
+            raw_issue: The issue data to be inserted or updated.
         """
         with self.connection_supplier() as conn:
-            log.debug(f"Updating issue {issue['key']}")
-            issue = Issue.from_raw(issue)
+            log.debug(f"Updating issue {raw_issue['key']}")
+            issue = Issue.from_raw(raw_issue)
             cursor = conn.cursor()
             cursor.execute(
                 """

@@ -84,7 +84,9 @@ def test_update_issue(
         "key": "TEST-1",
         "fields": {
             "summary": "Test issue",
+            "description": "dummy_description",
             "updated": "2023-01-01T12:00:00.000+0000",
+            "assignee": None,
             "components": [],
             "issuetype": {
                 "self": "dummy_self",
@@ -93,6 +95,14 @@ def test_update_issue(
                 "iconUrl": "dummy_iconUrl",
                 "name": "dummy_name",
                 "subtask": False,
+            },
+            "timetracking": {
+                "originalEstimate": "dummy_originalEstimate",
+                "originalEstimateSeconds": 0,
+                "remainingEstimate": "dummy_remainingEstimate",
+                "remainingEstimateSeconds": 0,
+                "timeSpent": "dummy_timeSpent",
+                "timeSpentSeconds": 0,
             },
             "worklog": {
                 "startAt": 0,
